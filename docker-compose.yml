@@ -1,0 +1,17 @@
+version: '3'
+services:
+  bucketlist:
+    image: "guptashubh/mydockerimage:shubham"
+    build: .
+    ports:
+      - "5433:5432"
+    volumes:
+      - .:/app
+    environment:
+      FLASK_ENV: development
+
+  database:
+    image: "guptashubh/postgres:latest"
+
+  vault:
+    image: "guptashubh/vault:latest"
