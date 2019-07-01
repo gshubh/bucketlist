@@ -3,7 +3,7 @@ from github import Github
 from github import InputGitTreeElement
 
 user = "gshubh"
-password = "skg@1999"
+password = ""
 g = Github(user,password)
 repo = g.get_user().get_repo('bucketlist')
 file_list = [
