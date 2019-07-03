@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_repo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/repo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/repo.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+              <caret line="148" column="27" lean-forward="true" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -322,7 +319,7 @@
       <workItem from="1561960541939" duration="1364000" />
       <workItem from="1561962530526" duration="12751000" />
       <workItem from="1562045456784" duration="9969000" />
-      <workItem from="1562132803436" duration="4380000" />
+      <workItem from="1562132803436" duration="6885000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -381,7 +378,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106553000" />
+    <option name="totallyTimeSpent" value="109058000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -407,7 +404,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49675852" weight="0.31954023" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49675852" visible="true" weight="0.32413793" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49675852" visible="true" weight="0.3264368" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5032415" side_tool="true" weight="0.32528734" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32528734" />
       <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.4943274" weight="0.345977" />
@@ -674,7 +671,7 @@
     <entry file="file://$PROJECT_DIR$/repo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+          <caret line="148" column="27" lean-forward="true" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="27" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

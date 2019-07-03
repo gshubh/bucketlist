@@ -142,12 +142,12 @@ def delete_branch(repo_dir, branch_name):
 def main():
     # Step 1: Create a Github instance:
     #g = Github("gshubh", "passwd")
-    create_new_repository("test")
+    create_new_repository("bucketlist")
     #repo_dir =test
 
-    git_add('.', '/home/ubuntu-1804/Desktop/bucketlist')
+    git_add('/home/ubuntu-1804/Desktop/bucketlist/repo.py', '/home/ubuntu-1804/Desktop/bucketlist')
     git_commit("New Commit", '/home/ubuntu-1804/Desktop/bucketlist')
-    push_all_branch('/home/ubuntu-1804/Desktop/bucketlist')
+    #push_all_branch('/home/ubuntu-1804/Desktop/bucketlist')
 
 
 if __name__ == '__main__':
