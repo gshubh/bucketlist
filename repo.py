@@ -16,14 +16,12 @@ def execute_shell_command(cmd, work_dir):
     pipe.wait()
 
 
-def create_new_repository(reponame):
+def repository(repo_name):
     """This function will create new repository"""
-    # cmd = "git init"
-    # subprocess.call(cmd, shell=True)
-    cmd = "git remote add origin git@github.com:gshubh/<" + reponame + ">.git"
+    cmd = "git remote add origin git@github.com:gshubh/<" + repo_name + ">.git"
     subprocess.call(cmd, shell=True)
-    cmd = "git push -u origin master"
-    subprocess.call(cmd, shell=True)
+    #cmd = "git push -u origin master"
+    #subprocess.call(cmd, shell=True)
 
 
 def git_user(name, email, repo_dir):
@@ -140,7 +138,7 @@ def delete_branch(repo_dir, branch_name):
 
 
 def main():
-    create_new_repository("bucketlist")
+    repository("bucketlist")
     git_pull('/home/ubuntu-1804/Desktop/bucketlist')
     git_add('/home/ubuntu-1804/Desktop/bucketlist/repo.py', '/home/ubuntu-1804/Desktop/bucketlist')
     git_commit("New Commit", '/home/ubuntu-1804/Desktop/bucketlist')
