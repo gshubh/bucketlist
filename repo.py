@@ -17,7 +17,7 @@ def execute_shell_command(cmd, work_dir):
 
 
 def repository(repo_name):
-    """This function will create new repository"""
+    """This function will take you to the repository"""
     cmd = "git remote add origin git@github.com:gshubh/<" + repo_name + ">.git"
     subprocess.call(cmd, shell=True)
     cmd = "git push -u origin master"
