@@ -20,8 +20,8 @@ def repository(repo_name):
     """This function will create new repository"""
     cmd = "git remote add origin git@github.com:gshubh/<" + repo_name + ">.git"
     subprocess.call(cmd, shell=True)
-    #cmd = "git push -u origin master"
-    #subprocess.call(cmd, shell=True)
+    cmd = "git push -u origin master"
+    subprocess.call(cmd, shell=True)
 
 
 def git_user(name, email, repo_dir):
