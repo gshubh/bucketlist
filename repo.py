@@ -140,7 +140,7 @@ def delete_branch(repo_dir, branch_name):
 def main():
     repository("bucketlist")
     git_pull('/home/ubuntu-1804/Desktop/bucketlist')
-    git_add('/home/ubuntu-1804/Desktop/bucketlist/repo.py', '/home/ubuntu-1804/Desktop/bucketlist')
+    git_add('/home/ubuntu-1804/Desktop/bucketlist/temp.py', '/home/ubuntu-1804/Desktop/bucketlist')
     git_commit("New Commit", '/home/ubuntu-1804/Desktop/bucketlist')
 
 
