@@ -54,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/repo.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
-              <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
+              <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -319,7 +319,7 @@
       <workItem from="1561960541939" duration="1364000" />
       <workItem from="1561962530526" duration="12751000" />
       <workItem from="1562045456784" duration="9969000" />
-      <workItem from="1562132803436" duration="7156000" />
+      <workItem from="1562132803436" duration="7254000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -378,7 +378,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109329000" />
+    <option name="totallyTimeSpent" value="109427000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,7 +671,7 @@
     <entry file="file://$PROJECT_DIR$/repo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
+          <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
