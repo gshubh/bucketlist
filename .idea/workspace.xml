@@ -41,11 +41,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pygithub.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="495">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/repo_shell.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1455">
+              <caret line="148" column="10" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -301,7 +313,7 @@
       <workItem from="1562217262302" duration="2771000" />
       <workItem from="1562220279087" duration="9642000" />
       <workItem from="1562249933574" duration="4193000" />
-      <workItem from="1562313140142" duration="2893000" />
+      <workItem from="1562313140142" duration="3266000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -367,7 +379,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137881000" />
+    <option name="totallyTimeSpent" value="138254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -380,7 +392,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1280" height="999" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.26012966" />
       <window_info id="Structure" order="1" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
@@ -645,16 +656,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/git/__init__.py" />
     <entry file="file://$PROJECT_DIR$/git/repo.py" />
-    <entry file="file://$PROJECT_DIR$/repo_shell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="148" column="10" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project_git/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -694,8 +695,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pygithub.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repo_shell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="148" column="10" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
