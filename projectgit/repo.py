@@ -6,8 +6,8 @@ from __future__ import unicode_literals
 from os import getcwd
 from git import  Repo
 from git.exc import GitCommandError
-from project_git.exceptions import MissingRemoteException, MissingBranchExcpetion, \
-    PushFailedException, MissingRepoException
+from github import Github
+from .exceptions import MissingRemoteException, MissingBranchExcpetion, PushFailedException, MissingRepoException
 
 
 import logging
@@ -236,8 +236,6 @@ def merge_base_into_branch_and_push(branch_name,
     push_repo(repo, branch_name, remote_name, remote_branch=remote_branch_name)
 
 
-
-
 def _delete_branch(repo, name):
     """
     Deletes the branch and raises a MissingBranchException
@@ -257,7 +255,7 @@ def _delete_branch(repo, name):
                                             ###   FILES   ###
 
 
-def create_new_file(repo, path, message, branch):
+def create_new_file(repo, path, content, message, branch):
     # To create new file inside the repository
     '''parameters
     path - string, (required), path of the file in the repository
@@ -265,7 +263,7 @@ def create_new_file(repo, path, message, branch):
     content - string, (required) actual data in the file
     '''
 
-    repo.create_file(path, message, branch=branch)
+    repo.create_file(path, content, message, branch=branch)
 
 def update_a_file(repo, path, ref, message, content, branch):
     # Update a file in the repository
@@ -281,7 +279,7 @@ def update_a_file(repo, path, ref, message, content, branch):
     repo.update_file(contents.path, message, content, contents.sha, branch)
 
 
-def delete_a_file(repo, path, ref, message, content, branch):
+def delete_a_file(repo, path, ref, message, branch):
     # Update a file in the repository
     '''parameters
         path - string, (required), path of the file in the repository
@@ -292,12 +290,12 @@ def delete_a_file(repo, path, ref, message, content, branch):
     '''
 
     contents = repo.get_contents(path, ref)
-    repo.delete_file(contents.path, message, content, contents.sha, branch)
-
-
+    repo.delete_file(contents.path, message, contents.sha, branch)
 
 def main():
-    _get_relevant_commit_shas("https://github.com/gshubh/bucketlist.git" , "" , "master")
+    g = Github("gshubh", "")
+    repo = g.get_repo("gshubh/bucketlist")
+    create_new_file(repo, "/temp.py", "test", "new file added", branch="master")
 
 
 if __name__ == '__main__':

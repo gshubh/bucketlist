@@ -12,8 +12,8 @@ from github.GithubException import GithubException, BadCredentialsException, Two
 from git import Repo
 from giturlparse import parse
 
-from projectgit.credentials import get_github_password
-from .repo import construct_message, get_repo
+from .credentials import get_github_password
+from .repo import construct_message, _get_repo
 from .exceptions import AuthenticationException
 
 _LOG = logging.getLogger(__name__)
@@ -105,7 +105,7 @@ def _instantiate_github(username):
         try:
             auth = github.get_user().create_authorization(
                 scopes=['repo'],
-                note='github-reviewboard-sync {0}'.format(str(uuid4())))
+                note='bucketlist {0}'.format(str(uuid4())))
             return github, auth
         except BadCredentialsException as exc:
             _LOG.error('The password was not valid for "{0}"'.format(username))
@@ -118,7 +118,7 @@ def _instantiate_github(username):
             onetime_password =input('Github 2-Factor code: ')
             authorization = user.create_authorization(
                 scopes=['repo'],
-                note='github-reviewboard-sync {0}'.format(str(uuid4())),
+                note='bucketlist {0}'.format(str(uuid4())),
                 onetime_password=onetime_password)
             return Github(authorization.token), authorization
 
@@ -141,6 +141,6 @@ def create_pull_request(path, branch, base, username, remote):
     :rtype: PullRequest
     """
     github, auth = _instantiate_github(username)
-    repo = get_repo(path)
+    repo = _get_repo()
     remote_repo = _get_current_repo(github, repo, remote)
     return _create_pull_request_helper(repo, remote_repo, branch, base, auth=auth)

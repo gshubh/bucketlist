@@ -23,6 +23,7 @@ class PushFailedException(SyncException):
 class AuthenticationException(SyncException):
     pass
 
-class MissingRepoExcpetion(SyncException):
+
+class MissingRepoException(SyncException):
     pass
 
