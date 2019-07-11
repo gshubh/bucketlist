@@ -12,7 +12,7 @@ class MissingRemoteException(SyncException):
     pass
 
 
-class MissingBranchExcpetion(SyncException):
+class MissingBranchException(SyncException):
     pass
 
 
@@ -27,3 +27,10 @@ class AuthenticationException(SyncException):
 class MissingRepoException(SyncException):
     pass
 
+
+class ExistingBranchException(SyncException):
+    pass
+
+
+class MissingNumberException(SyncException):
+    pass
