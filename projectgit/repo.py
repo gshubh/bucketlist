@@ -3,16 +3,17 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
+
+import logging
+import re
+
 from os import getcwd
 from git import  Repo
 from git.exc import GitCommandError
 from github import Github
-from .exceptions import MissingRemoteException, MissingBranchExcpetion, PushFailedException, MissingRepoException
+from .exceptions import *
+from.credentials import *
 
-
-import logging
-import re
-import os, sys
 
 _LOG = logging.getLogger(__name__)
 
@@ -53,7 +54,9 @@ def _get_relevant_commits(repo, commit_shas, branch):
 
 
 def _get_messages(commits):
-    ''' To get all the commit messages associated with the commits'''
+    """
+    To get all the commit messages associated with the commits
+    """
     if not commits:
         return ''
     return '\n\n'.join([commit.message for commit in commits])
@@ -111,13 +114,13 @@ def push_repo(repo, branch, remote='origin', remote_branch=None):
 def _clone_repository(repo, url, to_path, ):
     """
     To clone the repository
-    :param unicode path:
+    :param unicode to_path:
     :return: The repo object
     :rtype: git.repo.base.Repo
     """
 
     try:
-        repo.clone_from(url, to_path)
+        repo.git.clone_from(url, to_path)
     except IndexError:  # I have no idea why they raise an IndexError instead of KeyError
         raise MissingRepoException('The remote "{0}" does not exist.  '
                                      'Please select a different repository')
@@ -134,7 +137,7 @@ def _get_remote(repo, name):
     :raises: MissingRemoteException
     """
     try:
-        return repo.remotes[name]
+        return repo.git.remotes[name]
     except IndexError:  # I have no idea why they raise an IndexError instead of KeyError
         raise MissingRemoteException('The remote "{0}" does not exist.  '
                                      'Please select a different remote or'
@@ -143,7 +146,7 @@ def _get_remote(repo, name):
 
 def _delete_repo(repo, name):
     """
-    Deletes the branch and raises a MissingBranchException
+    Deletes the branch and raises a MissingRepoException
     if it doesn't exist
     :param Repo repo:
     :param unicode name: The name of the branch
@@ -152,7 +155,7 @@ def _delete_repo(repo, name):
     :raises: MissingBranchException
     """
     try:
-        repo.__del__()
+        repo.git.__del__()
         return repo.branches()
     except IndexError:
         raise MissingRepoException('The remote "{0}" does not exist.  '
@@ -174,7 +177,35 @@ def _get_branch(repo, name):
     try:
         return repo.branches(name)
     except IndexError:
-        raise MissingBranchExcpetion('The branch "{0}" does not seem to exist'.format(name))
+        raise MissingBranchException('The branch "{0}" does not seem to exist'.format(name))
+
+
+def _get_head_commit(repo, branch_name):
+    """
+    To get the latest commit of the given branch
+    eg: Commit(sha="5e69ff00a3be0a76b13356c6ff42af79ff469ef3")
+    :param Repo repo:
+    :param unicode branch_name: The name of the branch
+    :return commit object
+    """
+    branch = _get_branch(repo, branch_name)
+    return branch.commit
+
+
+def create_branch(repo, name):
+    """Gets the branch and raises a MissingBranchException
+    if it doesn't exist
+    :param Repo repo:
+    :param unicode name: The name of the branch
+    :raises: ExistingBranchException
+    """
+    ref = "refs/heads/{branch_name}".format(**locals())
+    sha = 'New branch "{0}" created'.format(name)
+
+    try:
+        repo.git.create_git_ref(ref, sha)
+    except IndexError:
+        raise ExistingBranchException('Branch "{0}" already exist. To create new brancg give some different name'.format(name))
 
 
 def _checkout_branch(repo, branch):
@@ -205,9 +236,9 @@ def _merge_base_into_repo(repo, branch_name, base_name):
 
     # When the log is empty that means there are no
     # commits on the base that are not on the branch
-    if not repo.git.log('{0}..{1}'.format(branch_name, base_name)):
+    if not repo.git.log('{0}..{1}'.format(branch, base)):
         return
-    _LOG.info('Merging "{0}" into "{1}"'.format(base_name, branch_name))
+    _LOG.info('Merging "{0}" into "{1}"'.format(base, branch))
     repo.git.merge(base_name, commit=True)
 
 
@@ -250,52 +281,118 @@ def _delete_branch(repo, name):
         repo.branches(name).__del__()
         return repo.branches()
     except IndexError:
-        raise MissingBranchExcpetion('The branch "{0}" does not seem to exist'.format(name))
+        raise MissingBranchException('The branch "{0}" does not seem to exist'.format(name))
 
                                             ###   FILES   ###
 
 
 def create_new_file(repo, path, content, message, branch):
-    # To create new file inside the repository
-    '''parameters
+    """
+    To create new file inside the repository
+    parameters
     path - string, (required), path of the file in the repository
     message - string, (required), commit message
     content - string, (required) actual data in the file
-    '''
+    """
 
     repo.create_file(path, content, message, branch=branch)
 
+
 def update_a_file(repo, path, ref, message, content, branch):
-    # Update a file in the repository
-    '''parameters
+    """
+    Update a file in the repository
+    parameters
         path - string, (required), path of the file in the repository
         message - string, (required), commit message
         content - string, (required) actual data in the file
         sha - string, (required), Th blob sha of file being replaced
         branch - string. The branch name. Default: The repository's branch name (usually master)
-    '''
+    """
 
     contents = repo.get_contents(path, ref)
     repo.update_file(contents.path, message, content, contents.sha, branch)
 
 
 def delete_a_file(repo, path, ref, message, branch):
-    # Update a file in the repository
-    '''parameters
+    """
+    Update a file in the repository
+    parameters
         path - string, (required), path of the file in the repository
         message - string, (required), commit message
         content - string, (required) actual data in the file
         sha - string, (required), Th blob sha of file being replaced
         branch - string. The branch name. Default: The repository's branch name (usually master)
-    '''
+    """
 
     contents = repo.get_contents(path, ref)
     repo.delete_file(contents.path, message, contents.sha, branch)
 
+                                        ###  ISSUES  ###
+
+
+def _get_issue(repo, number):
+    """
+    Get issue with given number
+    :param number:
+    :return: github.Issue.Issue
+    """
+    try:
+        return repo.get_issue(number = number)
+    except IndexError:
+        raise MissingNumberException('Issue number "{0}" does not seem to exist'.format(number))
+
+
+def _create_issue(repo, title):
+    """
+    Create a new issue
+    """
+    repo.create_issue(title = title)
+
+
+def _create_issue_with_body(repo, title, body):
+    """
+    Create an issue with body
+    """
+    repo.create_issue(title = title, body = body)
+
+
+def _create_issue_with_labels(repo, title, labels):
+    """
+
+    :param repo: Repository
+    :param title: Title given to the issue
+    :param labels: Lable on the issue
+    :return:
+    """
+    label = repo.get_label("My Label")
+    repo.create_issue(title="This is a new issue", labels=[label])
+
+def _create_issue_with_assignee(repo, title, github_username):
+    """
+
+    :param repo: Repository
+    :param github_username:
+    :return:
+    """
+    repo.create_issue(title = title , assignee = github_username)
+
+
+def _create_issue_with_milestone(repo):
+    """
+    :param repo: Repository
+    :return:
+    """
+    milestone = repo.create_milestone("New Issue Milestone")
+    repo.create_issue(title="This is a new issue", milestone=milestone)
+
+
 def main():
-    g = Github("gshubh", "")
+    username = 'gshubh'
+    password = get_github_password(username, refresh=False)
+    g = Github(username, password)
     repo = g.get_repo("gshubh/bucketlist")
     create_new_file(repo, "/temp.py", "test", "new file added", branch="master")
+    create_branch(repo, 'new_branch')
 
 
 if __name__ == '__main__':
