@@ -203,7 +203,8 @@ def create_branch(repo, name):
     try:
         repo.git.create_git_ref(ref, sha)
     except IndexError:
-        raise ExistingBranchException('Branch "{0}" already exist. To create new branch give some different name'.format(name))
+        raise ExistingBranchException('Branch "{0}" already exist.'
+                                        'To create new branch give some different name'.format(name))
 
 
 def _checkout_branch(repo, branch):
