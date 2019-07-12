@@ -141,6 +141,6 @@ def create_pull_request(path, branch, base, username, remote):
     :rtype: PullRequest
     """
     github, auth = _instantiate_github(username)
-    repo = _get_repo()
+    repo = _get_repo(path)
     remote_repo = _get_current_repo(github, repo, remote)
     return _create_pull_request_helper(repo, remote_repo, branch, base, auth=auth)
