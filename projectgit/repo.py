@@ -8,11 +8,11 @@ import logging
 import re
 
 from os import getcwd
-from git import  Repo
+from git import Repo
 from git.exc import GitCommandError
 from github import Github
-from .exceptions import *
-from.credentials import *
+from projectgit.exceptions import *
+from projectgit.credentials import *
 
 
 _LOG = logging.getLogger(__name__)
@@ -122,8 +122,7 @@ def _clone_repository(repo, url, to_path, ):
     try:
         repo.git.clone_from(url, to_path)
     except IndexError:  # I have no idea why they raise an IndexError instead of KeyError
-        raise MissingRepoException('The remote "{0}" does not exist.  '
-                                     'Please select a different repository')
+        raise MissingRepoException('The remote repo does not exist. Please select a different repository')
 
 
 def _get_remote(repo, name):
@@ -158,8 +157,7 @@ def _delete_repo(repo, name):
         repo.git.__del__()
         return repo.branches()
     except IndexError:
-        raise MissingRepoException('The remote "{0}" does not exist.  '
-                                     'Please select a different repository'.format(name))
+        raise MissingRepoException('The remote "{0}" does not exist. Please select a different repository'.format(name))
 
 
                                             ###   Branches   ###
@@ -205,7 +203,7 @@ def create_branch(repo, name):
     try:
         repo.git.create_git_ref(ref, sha)
     except IndexError:
-        raise ExistingBranchException('Branch "{0}" already exist. To create new brancg give some different name'.format(name))
+        raise ExistingBranchException('Branch "{0}" already exist. To create new branch give some different name'.format(name))
 
 
 def _checkout_branch(repo, branch):
@@ -337,7 +335,7 @@ def _get_issue(repo, number):
     :return: github.Issue.Issue
     """
     try:
-        return repo.get_issue(number = number)
+        return repo.get_issue(number=number)
     except IndexError:
         raise MissingNumberException('Issue number "{0}" does not seem to exist'.format(number))
 
@@ -346,35 +344,32 @@ def _create_issue(repo, title):
     """
     Create a new issue
     """
-    repo.create_issue(title = title)
+    repo.create_issue(title=title)
 
 
 def _create_issue_with_body(repo, title, body):
     """
     Create an issue with body
     """
-    repo.create_issue(title = title, body = body)
+    repo.create_issue(title=title, body=body)
 
 
-def _create_issue_with_labels(repo, title, labels):
+def _create_issue_with_labels(repo):
     """
-
     :param repo: Repository
-    :param title: Title given to the issue
-    :param labels: Lable on the issue
     :return:
     """
     label = repo.get_label("My Label")
     repo.create_issue(title="This is a new issue", labels=[label])
 
+
 def _create_issue_with_assignee(repo, title, github_username):
     """
-
     :param repo: Repository
     :param github_username:
     :return:
     """
-    repo.create_issue(title = title , assignee = github_username)
+    repo.create_issue(title=title , assignee=github_username)
 
 
 def _create_issue_with_milestone(repo):
