@@ -53,7 +53,6 @@ def _get_relevant_commits(repo, commit_shas, branch):
     return commits
 
 
-
 def _construct_summary(relevant_commits):
     """
     Returns an appropriate summary for the given
