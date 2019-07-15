@@ -6,6 +6,8 @@ from __future__ import unicode_literals
 
 import logging
 import re
+import sys, os
+sys.path.append(os.path.abspath(".."))
 
 from os import getcwd
 from git import Repo
@@ -202,9 +204,21 @@ def _get_branch(repo, name):
     :raises: MissingBranchException
     """
     try:
-        return repo.branches(name)
+        return repo.get_branch(name)
     except IndexError:
         raise MissingBranchException('The branch "{0}" does not seem to exist'.format(name))
+
+def _get_branches(repo):
+    """
+    Gets the branch and raises a MissingBranchException
+    if it doesn't exist
+    :param Repo repo:
+    :param unicode name: The name of the branch
+    :return: The branch object
+    :rtype: git.refs.head.Head
+    :raises: MissingBranchException
+    """
+    return repo.get_branches()
 
 
 def _get_head_commit(repo, branch_name):
@@ -226,11 +240,11 @@ def create_branch(repo, name):
     :param unicode name: The name of the branch
     :raises: ExistingBranchException
     """
-    ref = "refs/heads/{branch_name}".format(**locals())
-    sha = 'New branch "{0}" created'.format(name)
-
+    # ref = "refs/heads/{branch_name}".format(**locals())
+    ref = "refs/heads/{0}".format(name)
+    sha = repo.get_branch("master").commit.sha
     try:
-        repo.git.create_git_ref(ref, sha)
+        repo.create_git_ref(ref, sha)
     except IndexError:
         raise ExistingBranchException('Branch "{0}" already exist.'
                                         'To create new branch give some different name'.format(name))
@@ -314,7 +328,7 @@ def _delete_branch(repo, name):
                                             ###   FILES   ###
 
 
-def create_new_file(repo, path, content, message, branch):
+def create_new_file(repo, path, message, content,  branch):
     """
     To create new file inside the repository
     parameters
@@ -322,11 +336,10 @@ def create_new_file(repo, path, content, message, branch):
     message - string, (required), commit message
     content - string, (required) actual data in the file
     """
+    repo.create_file(path, message, content, branch=branch)
 
-    repo.create_file(path, content, message, branch=branch)
 
-
-def update_a_file(repo, path, ref, message, content, branch):
+def update_a_file(repo, path, message, content, sha, branch):
     """
     Update a file in the repository
     parameters
@@ -336,24 +349,20 @@ def update_a_file(repo, path, ref, message, content, branch):
         sha - string, (required), Th blob sha of file being replaced
         branch - string. The branch name. Default: The repository's branch name (usually master)
     """
-
-    contents = repo.get_contents(path, ref)
-    repo.update_file(contents.path, message, content, contents.sha, branch)
+    repo.update_file(path, message, content, sha, branch)
 
 
-def delete_a_file(repo, path, ref, message, branch):
+def delete_a_file(repo, path, sha, message, branch):
     """
     Update a file in the repository
     parameters
-        path - string, (required), path of the file in the repository
-        message - string, (required), commit message
-        content - string, (required) actual data in the file
-        sha - string, (required), Th blob sha of file being replaced
-        branch - string. The branch name. Default: The repository's branch name (usually master)
+        :repo - repository
+        :path - string, (required), path of the file in the repository
+        :message - string, (required), commit message
+        :sha - string, (required), Th blob sha of file being replaced
+        :branch - string. The branch name. Default: The repository's branch name (usually master)
     """
-
-    contents = repo.get_contents(path, ref)
-    repo.delete_file(contents.path, message, contents.sha, branch)
+    repo.delete_file(path, message, sha, branch)
 
                                         ###  ISSUES  ###
 
@@ -413,11 +422,11 @@ def _create_issue_with_milestone(repo):
 
 def main():
     username = 'gshubh'
-    password = get_github_password(username, refresh=False)
+    # password = get_github_password(username, refresh=False)
+    password = ""
     g = Github(username, password)
     repo = g.get_repo("gshubh/bucketlist")
-    create_new_file(repo, "/temp.py", "test", "new file added", branch="master")
-    create_branch(repo, 'new_branch')
+    create_branch(repo, "new_branch")
 
 
 if __name__ == '__main__':
