@@ -10,7 +10,7 @@ import sys, os
 sys.path.append(os.path.abspath(".."))
 
 from os import getcwd
-from git import Repo
+from git import Repo, Commit
 from git.exc import GitCommandError
 from github import Github
 from projectgit.exceptions import *
@@ -21,6 +21,24 @@ _LOG = logging.getLogger(__name__)
 
                                             ###   COMMITS   ###
 
+def _get_head_commit(repo, branch_name):
+    """
+    To get the latest commit of the given branch
+    eg: Commit(sha="5e69ff00a3be0a76b13356c6ff42af79ff469ef3")
+    :param Repo repo:
+    :param unicode branch_name: The name of the branch
+    :return commit object
+    """
+    branch = _get_branch(repo, branch_name)
+    return branch.commit
+
+
+def _get_commit(repo, sha):
+    """
+    :param sha:
+    :return:
+    """
+    return repo.get_commit(sha)
 
 def _get_relevant_commit_shas(repo, base, branch):
     """
@@ -87,6 +105,8 @@ def construct_message(repo, base, branch):
 def _get_messages(commits):
     """
     To get all the commit messages associated with the commits
+    :param commits:
+    :return:
     """
     if not commits:
         return ''
@@ -213,34 +233,19 @@ def _get_branches(repo):
     Gets the branch and raises a MissingBranchException
     if it doesn't exist
     :param Repo repo:
-    :param unicode name: The name of the branch
     :return: The branch object
     :rtype: git.refs.head.Head
-    :raises: MissingBranchException
     """
     return repo.get_branches()
 
 
-def _get_head_commit(repo, branch_name):
-    """
-    To get the latest commit of the given branch
-    eg: Commit(sha="5e69ff00a3be0a76b13356c6ff42af79ff469ef3")
-    :param Repo repo:
-    :param unicode branch_name: The name of the branch
-    :return commit object
-    """
-    branch = _get_branch(repo, branch_name)
-    return branch.commit
-
-
-def create_branch(repo, name):
+def create_new_branch(repo, name):
     """Gets the branch and raises a MissingBranchException
     if it doesn't exist
     :param Repo repo:
     :param unicode name: The name of the branch
     :raises: ExistingBranchException
     """
-    # ref = "refs/heads/{branch_name}".format(**locals())
     ref = "refs/heads/{0}".format(name)
     sha = repo.get_branch("master").commit.sha
     try:
@@ -319,9 +324,10 @@ def _delete_branch(repo, name):
     :rtype: git.refs.head.Head
     :raises: MissingBranchException
     """
+    ref = "heads/{0}".format(name)
+    src = repo.get_git_ref(ref)
     try:
-        repo.branches(name).__del__()
-        return repo.branches()
+        src.delete()
     except IndexError:
         raise MissingBranchException('The branch "{0}" does not seem to exist'.format(name))
 
@@ -381,20 +387,23 @@ def _get_issue(repo, number):
 
 def _create_issue(repo, title):
     """
-    Create a new issue
+    Creates a new issue
+    :param repo:
+    :param title:
     """
     repo.create_issue(title=title)
 
 
 def _create_issue_with_body(repo, title, body):
     """
-    Create an issue with body
+    Create an issue with body. A title and description describe what the issue is all about.
     """
     repo.create_issue(title=title, body=body)
 
 
 def _create_issue_with_labels(repo):
     """
+    Color-coded labels help you categorize and filter your issues (just like labels in email).
     :param repo: Repository
     :return:
     """
@@ -404,6 +413,7 @@ def _create_issue_with_labels(repo):
 
 def _create_issue_with_assignee(repo, title, github_username):
     """
+    One assignee is responsible for working on the issue at any given time.
     :param repo: Repository
     :param github_username:
     :return:
@@ -413,6 +423,9 @@ def _create_issue_with_assignee(repo, title, github_username):
 
 def _create_issue_with_milestone(repo):
     """
+    A milestone acts like a container for issues.
+    This is useful for associating issues with specific features or project phases
+    (e.g. Weekly Sprint 9/5-9/16 or Shipping 1.0).
     :param repo: Repository
     :return:
     """
@@ -421,13 +434,11 @@ def _create_issue_with_milestone(repo):
 
 
 def main():
-    username = 'gshubh'
-    # password = get_github_password(username, refresh=False)
-    password = ""
+    username = "gshubh"
+    password = get_github_password(username, refresh=False)
     g = Github(username, password)
     repo = g.get_repo("gshubh/bucketlist")
-    create_branch(repo, "new_branch")
-
+    _delete_branch(repo, "new")
 
 if __name__ == '__main__':
     main()
