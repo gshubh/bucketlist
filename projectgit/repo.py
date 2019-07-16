@@ -5,12 +5,13 @@ from __future__ import unicode_literals
 
 
 import logging
+import pygit2
 import re
 import sys, os
 sys.path.append(os.path.abspath(".."))
 
 from os import getcwd
-from git import Repo, Commit
+from git import Repo, Commit, Git
 from git.exc import GitCommandError
 from github import Github
 from projectgit.exceptions import *
@@ -39,6 +40,7 @@ def _get_commit(repo, sha):
     :return:
     """
     return repo.get_commit(sha)
+
 
 def _get_relevant_commit_shas(repo, base, branch):
     """
@@ -162,17 +164,16 @@ def push_repo(repo, branch, remote='origin', remote_branch=None):
                                   ' wrong with the push. "{0}"'.format(str(e)))
 
 
-def _clone_repository(repo, url, to_path, ):
-    """
-    To clone the repository
-    :param unicode to_path:
-    :return: The repo object
-    :rtype: git.repo.base.Repo
+def _clone_repo(url, to_path, ):
     """
 
+    :param url: Repository url:
+    :param to_path: /path/to/clone/to:
+    :return:
+    """
     try:
-        repo.git.clone_from(url, to_path)
-    except IndexError:  # I have no idea why they raise an IndexError instead of KeyError
+        pygit2.clone_repository(url, to_path)
+    except ValueError:  # I have no idea why they raise an IndexError instead of KeyError
         raise MissingRepoException('The remote repo does not exist. Please select a different repository')
 
 
@@ -187,7 +188,7 @@ def _get_remote(repo, name):
     :raises: MissingRemoteException
     """
     try:
-        return repo.git.remotes[name]
+        return repo.remotes[name]
     except IndexError:  # I have no idea why they raise an IndexError instead of KeyError
         raise MissingRemoteException('The remote "{0}" does not exist.  '
                                      'Please select a different remote or'
@@ -265,7 +266,7 @@ def _checkout_branch(repo, branch):
     """
     branch = _get_branch(repo, branch)
     _LOG.info('Checking out branch "{0}"'.format(branch.name))
-    branch.checkout()
+    repo.checkout("{0}".format(branch.name))
     return branch
 
 
@@ -438,7 +439,8 @@ def main():
     password = get_github_password(username, refresh=False)
     g = Github(username, password)
     repo = g.get_repo("gshubh/bucketlist")
-    _delete_branch(repo, "new")
-
+    # print (_get_branch(repo, "new"))
+    # push_repo(repo, "new", remote='origin', remote_branch=None)
+    _get_remote(repo, "new")
 if __name__ == '__main__':
     main()
