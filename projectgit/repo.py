@@ -14,6 +14,7 @@ from os import getcwd
 from git import Repo, Commit, Git
 from git.exc import GitCommandError
 from github import Github
+from pygit2 import Repository
 from projectgit.exceptions import *
 from projectgit.credentials import *
 
@@ -140,39 +141,38 @@ def _get_repo(path=None):
     return Repo(path)
 
 
-def push_repo(repo, branch, remote='origin', remote_branch=None):
+def clone_and_push_repo(repo, url, to_path, user_name):
     """
-    Pushes the repo up to the remote.  It will set
-    the upstream to the remote branch.
-    :param Repo repo: The repo you wish to push
-    :param unicode branch: The branch being pushed
-    :param unicode remote: The remote to use (e.g. ``'origin'``
-    :param unicode remote_branch: The remote branch.  Defaults
-        to the `branch` parameter
-    :return: None
-    :raises: PushFailedException
+    clone repository, change files in it and then push it back to github
+    :param repo: Repo
+    :param url: Repository url
+    :param to_path: /path/to/clone/to
+    :param user_name: github_username
     """
-    remote_branch = remote_branch or branch
-    _checkout_branch(repo, branch)
-    _LOG.info("Pushing all commits to remote '{0}'".format(remote))
-    remote = _get_remote(repo, remote)
+    repoclone = _clone_repo(url, to_path)
+    repoclone.remotes.set_url("origin", repo.clone_url)
+    remote = repoclone.remotes["origin"]
+    username = user_name
+    password = get_github_password(username, refresh=False)
+    credentials = pygit2.UserPass(username, password)
+    remote.credentials = credentials
+    callbacks = pygit2.RemoteCallbacks(credentials=credentials)
     try:
-        remote.push(remote_branch, set_upstream=True)
+        remote.push(['refs/heads/master'], callbacks=callbacks)
     except GitCommandError as e:
         _LOG.error(str(e))
         raise PushFailedException('Uh oh, it seems like something went'
                                   ' wrong with the push. "{0}"'.format(str(e)))
 
 
-def _clone_repo(url, to_path, ):
+def _clone_repo(url, to_path):
     """
-
-    :param url: Repository url:
-    :param to_path: /path/to/clone/to:
+    :param url: Repository url
+    :param to_path: /path/to/clone/to
     :return:
     """
     try:
-        pygit2.clone_repository(url, to_path)
+        return pygit2.clone_repository(url, to_path)
     except ValueError:  # I have no idea why they raise an IndexError instead of KeyError
         raise MissingRepoException('The remote repo does not exist. Please select a different repository')
 
@@ -256,7 +256,7 @@ def create_new_branch(repo, name):
                                         'To create new branch give some different name'.format(name))
 
 
-def _checkout_branch(repo, branch):
+def _checkout_branch(branch):
     """
     Checks out the branch specified locally
     :param Repo repo:
@@ -264,10 +264,23 @@ def _checkout_branch(repo, branch):
     :return: The branch object
     :rtype: git.refs.head.Head
     """
-    branch = _get_branch(repo, branch)
+    repo = pygit2.Repository("gshubh/bucketlist")
+    branch = repo.lookup_branch(branch)
     _LOG.info('Checking out branch "{0}"'.format(branch.name))
-    repo.checkout("{0}".format(branch.name))
-    return branch
+    ref = repo.lookup_reference(branch.name)
+    return repo.checkout(ref)
+
+
+def _merge_branch_to_master(repo, working_branch):
+    try:
+        # base = repo.get_branch("master")
+        head = repo.get_branch(working_branch)
+
+        merge_to_master = repo.merge("master",
+                                     head.commit.sha, "merge to master")
+        print (merge_to_master)
+    except Exception as ex:
+        print (ex)
 
 
 def _merge_base_into_repo(repo, branch_name, base_name):
@@ -290,32 +303,26 @@ def _merge_base_into_repo(repo, branch_name, base_name):
     repo.git.merge(base_name, commit=True)
 
 
-def merge_base_into_branch_and_push(branch_name,
-                                    base_name='master',
-                                    remote_name='origin',
-                                    remote_branch_name=None,
-                                    path=None):
+def merge_base_into_branch_and_push(repo, branch_name, url, to_path, user_name, base_name='master'):
     """
     Merges the branch with the ``base_name`` into the
     branch ``branch_name`` from the repo at the ``path``
     or the current working directory.  Finally, pushes
     the resulting commit up to the specified remote branch
-    :param unicode path: The path of the repo to operate on
-    :param unicode branch_name: The branch to be updated
-    :param unicode base_name: The branch that will be merged
-        into the ``branch_name``
-    :param unicode remote_name: The name of the remote (e.g. ``'origin'``)
-    :param unicode remote_branch_name: The name of the remote
-        branch.  Defaults to the branch_name parameter
+    :param repo:
+    :param branch_name:
+    :param url:
+    :param to_path:
+    :param user_name:
+    :param base_name:
+    :return:
     """
-    path = path or getcwd()
-    repo = _get_repo(path)
     _checkout_branch(repo, branch_name)
     _merge_base_into_repo(repo, branch_name, base_name)
-    push_repo(repo, branch_name, remote_name, remote_branch=remote_branch_name)
+    clone_and_push_repo(repo, url, to_path, user_name)
 
 
-def _delete_branch(repo, name):
+def _delete_branch(repo,name):
     """
     Deletes the branch and raises a MissingBranchException
     if it doesn't exist
@@ -435,12 +442,11 @@ def _create_issue_with_milestone(repo):
 
 
 def main():
-    username = "gshubh"
-    password = get_github_password(username, refresh=False)
-    g = Github(username, password)
-    repo = g.get_repo("gshubh/bucketlist")
-    # print (_get_branch(repo, "new"))
-    # push_repo(repo, "new", remote='origin', remote_branch=None)
-    _get_remote(repo, "new")
+    # username = "gshubh"
+    # password = get_github_password(username, refresh=False)
+    # g = Github(username, password)
+    # repo = g.get_repo("gshubh/bucketlist")
+    print (_checkout_branch("new"))
+
 if __name__ == '__main__':
     main()
