@@ -12,9 +12,9 @@ from github.GithubException import GithubException, BadCredentialsException, Two
 from git import Repo
 from giturlparse import parse
 
-from .credentials import get_github_password
-from .repo import construct_message, _get_repo
-from .exceptions import AuthenticationException
+from projectgit.credentials import *
+from projectgit.repo import construct_message, _get_repo
+from projectgit.exceptions import AuthenticationException
 
 _LOG = logging.getLogger(__name__)
 
@@ -113,34 +113,33 @@ def _instantiate_github(username):
                 raise AuthenticationException('Failed to authenticate three times. '
                                               'Is "{0}" the correct username?'.format(username))
             password = get_github_password(username, refresh=True)
-        except TwoFactorException as exc:
-            user = github.get_user()
-            onetime_password =input('Github 2-Factor code: ')
-            authorization = user.create_authorization(
-                scopes=['repo'],
-                note='bucketlist {0}'.format(str(uuid4())),
-                onetime_password=onetime_password)
-            return Github(authorization.token), authorization
+        # except TwoFactorException as exc:
+        #     user = github.get_user()
+        #     onetime_password =input('Github 2-Factor code: ')
+        #     authorization = user.create_authorization(
+        #         scopes=['repo'],
+        #         note='bucketlist {0}'.format(str(uuid4())),
+        #         onetime_password=onetime_password)
+        #     return Github(authorization.token), authorization
 
 
 def create_pull_request(path, branch, base, username, remote):
     """
     Creates a pull request for branch to merge into base
     on the remote.
-    :param unicode path: The path to the repository
-        defaults to the current working directory
-    :param unicode branch: The branch with the updates
-        to merge
+    :param unicode path: The path to the repository defaults to the current working directory
+    :param unicode branch: The branch with the updates to merge
     :param unicode base: The branch to merge into
     :param unicode username: The github username
-    :param unicode remote: The remote to create the
-        pull request on
-    :return: The pull request that was created or the existing
-        one.  Returns ``None`` if no pull request could be created
-        and the pull request could not be found
+    :param unicode remote: The remote to create the pull request on
+    :return: The pull request that was created or the existing one. Returns ``None`` if no pull request
+        could be created and the pull request could not be found
     :rtype: PullRequest
     """
     github, auth = _instantiate_github(username)
     repo = _get_repo(path)
     remote_repo = _get_current_repo(github, repo, remote)
     return _create_pull_request_helper(repo, remote_repo, branch, base, auth=auth)
+
+if __name__ == '__main__':
+    create_pull_request("/home/ubuntu-1804/Desktop/bucketlist", "new", "master", "gshubh", "origin")

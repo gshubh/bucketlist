@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
+    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="New commit">
+      <change afterPath="$PROJECT_DIR$/projectgit/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectgit/pullrequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/pullrequest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,21 +47,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pygithub.py">
+        <entry file="file://$PROJECT_DIR$/projectgit/credentials.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="309">
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectgit/exceptions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/repo_shell.py">
+        <entry file="file://$PROJECT_DIR$/projectgit/pullrequest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1455">
-              <caret line="148" column="10" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
+            <state relative-caret-position="403">
+              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="419" column="23" lean-forward="true" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,7 +109,17 @@
       <find>Database_URL</find>
       <find>repo_shell</find>
       <find>get_repo</find>
+      <find>NEW_BRANCH_NAME</find>
+      <find>HASH_TO_BRANCH_FROM</find>
+      <find>hash_to</find>
+      <find>targetbranch</find>
+      <find>targetuser</find>
+      <find>clone</find>
     </findStrings>
+    <replaceStrings>
+      <replace>new_branch_name</replace>
+      <replace>hash_to_branch_from</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,14 +136,24 @@
         <option value="$PROJECT_DIR$/read_repo.py" />
         <option value="$PROJECT_DIR$/repo/repo.py" />
         <option value="$PROJECT_DIR$/git.py" />
-        <option value="$PROJECT_DIR$/temp.py" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/repo.py" />
+        <option value="$PROJECT_DIR$/project_git/__init__.py" />
+        <option value="$PROJECT_DIR$/repo_shell.py" />
+        <option value="$PROJECT_DIR$/project_git/repo_new.py" />
         <option value="$PROJECT_DIR$/project_git/exceptions.py" />
         <option value="$PROJECT_DIR$/project_git/credentials.py" />
+        <option value="$PROJECT_DIR$/project_git/pullrequest.py" />
         <option value="$PROJECT_DIR$/project_git/repo.py" />
-        <option value="$PROJECT_DIR$/project_git/__init__.py" />
+        <option value="$PROJECT_DIR$/temp.py" />
+        <option value="$PROJECT_DIR$/projectgit/__init__.py" />
+        <option value="$PROJECT_DIR$/projectgit/credentials.py" />
         <option value="$PROJECT_DIR$/pygithub.py" />
+        <option value="$PROJECT_DIR$/projectgit/temp.py" />
+        <option value="$PROJECT_DIR$/projectgit/exceptions.py" />
+        <option value="$PROJECT_DIR$/temp1.py" />
+        <option value="$PROJECT_DIR$/projectgit/pullrequest.py" />
+        <option value="$PROJECT_DIR$/projectgit/repo.py" />
       </list>
     </option>
   </component>
@@ -126,7 +178,7 @@
             <path>
               <item name="bucketlist" type="b2602c69:ProjectViewProjectNode" />
               <item name="bucketlist" type="462c0819:PsiDirectoryNode" />
-              <item name="project_git" type="462c0819:PsiDirectoryNode" />
+              <item name="projectgit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -140,8 +192,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/repo" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/projectgit" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -152,11 +205,12 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projectgit" />
+      <recent name="$PROJECT_DIR$/repo" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/git" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/repo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -171,8 +225,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.registry: Compose Deployment">
-    <configuration name="read_repo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.repo (2)">
+    <configuration name="pygithub" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bucketlist" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -185,7 +239,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/read_repo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygithub.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,7 +248,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="repo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="repo (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bucketlist" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -202,12 +256,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project_git" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/repo_shell.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project_git/repo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,16 +270,70 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
-      <deployment type="docker-image">
-        <settings>
-          <option name="command" value="" />
-          <option name="containerName" value="bucketlist" />
-          <option name="entrypoint" value="" />
-          <option name="imageTag" value="sha256:3e22ae645289a0ced841605a93fc81e2b225fd2cdb3b0a548eed29d9196c4650" />
-          <option name="commandLineOptions" value="" />
-        </settings>
-      </deployment>
+    <configuration name="repo (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bucketlist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projectgit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projectgit/repo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="repo_new" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bucketlist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project_git" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project_git/repo_new.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bucketlist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projectgit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projectgit/temp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
@@ -242,42 +350,21 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.registry: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="registry" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="Docker.Docker Image" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.registry: Compose Deployment" />
-      <item itemvalue="Python.read_repo" />
-      <item itemvalue="Python.repo" />
+      <item itemvalue="Python.pygithub" />
+      <item itemvalue="Python.repo (1)" />
+      <item itemvalue="Python.repo_new" />
+      <item itemvalue="Python.repo (2)" />
+      <item itemvalue="Python.temp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.registry: Compose Deployment" />
-        <item itemvalue="Python.repo" />
-        <item itemvalue="Python.read_repo" />
-        <item itemvalue="Docker.Docker Image" />
+        <item itemvalue="Python.repo (2)" />
+        <item itemvalue="Python.temp" />
+        <item itemvalue="Python.repo_new" />
+        <item itemvalue="Python.repo (1)" />
+        <item itemvalue="Python.pygithub" />
       </list>
     </recent_temporary>
   </component>
@@ -313,7 +400,19 @@
       <workItem from="1562217262302" duration="2771000" />
       <workItem from="1562220279087" duration="9642000" />
       <workItem from="1562249933574" duration="4193000" />
-      <workItem from="1562313140142" duration="3266000" />
+      <workItem from="1562313140142" duration="13391000" />
+      <workItem from="1562568808067" duration="15992000" />
+      <workItem from="1562661812239" duration="9950000" />
+      <workItem from="1562679971456" duration="3859000" />
+      <workItem from="1562739693556" duration="4848000" />
+      <workItem from="1562835823594" duration="15551000" />
+      <workItem from="1562907748465" duration="8228000" />
+      <workItem from="1563178997463" duration="20416000" />
+      <workItem from="1563259932356" duration="9174000" />
+      <workItem from="1563343368655" duration="13105000" />
+      <workItem from="1563365236454" duration="2581000" />
+      <workItem from="1563368383760" duration="22000" />
+      <workItem from="1563514097622" duration="6887000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -343,7 +442,119 @@
       <option name="project" value="LOCAL" />
       <updated>1562142755008</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="New commit">
+      <created>1562669401027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1562669401027</updated>
+    </task>
+    <task id="LOCAL-00006" summary="New commit">
+      <created>1562683963496</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562683963496</updated>
+    </task>
+    <task id="LOCAL-00007" summary="New commit">
+      <created>1562835995283</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562835995283</updated>
+    </task>
+    <task id="LOCAL-00008" summary="New commit">
+      <created>1562858023406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562858023406</updated>
+    </task>
+    <task id="LOCAL-00009" summary="New commit">
+      <created>1562858079975</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1562858079975</updated>
+    </task>
+    <task id="LOCAL-00010" summary="New commit">
+      <created>1562909524810</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1562909524811</updated>
+    </task>
+    <task id="LOCAL-00011" summary="New commit">
+      <created>1562909611548</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1562909611548</updated>
+    </task>
+    <task id="LOCAL-00012" summary="New commit">
+      <created>1562910774773</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1562910774773</updated>
+    </task>
+    <task id="LOCAL-00013" summary="New commit">
+      <created>1562910793955</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1562910793955</updated>
+    </task>
+    <task id="LOCAL-00014" summary="New commit">
+      <created>1562911052162</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1562911052162</updated>
+    </task>
+    <task id="LOCAL-00015" summary="New commit">
+      <created>1563181394494</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563181394494</updated>
+    </task>
+    <task id="LOCAL-00016" summary="New commit">
+      <created>1563181609352</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1563181609352</updated>
+    </task>
+    <task id="LOCAL-00017" summary="New commit">
+      <created>1563204891776</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1563204891776</updated>
+    </task>
+    <task id="LOCAL-00018" summary="New commit">
+      <created>1563266651668</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1563266651668</updated>
+    </task>
+    <task id="LOCAL-00019" summary="New commit">
+      <created>1563274150621</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1563274150621</updated>
+    </task>
+    <task id="LOCAL-00020" summary="New commit">
+      <created>1563363432696</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1563363432696</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -379,7 +590,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138254000" />
+    <option name="totallyTimeSpent" value="258992000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -392,22 +603,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1280" height="999" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.26012966" />
+      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.31928688" />
       <window_info id="Structure" order="1" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info id="Favorites" order="2" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3275862" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3264368" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39905548" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39885056" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49675852" weight="0.31954023" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49675852" visible="true" weight="0.24022989" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50729334" side_tool="true" weight="0.3448276" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.493517" visible="true" weight="0.2321839" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50648296" side_tool="true" weight="0.23333333" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32528734" />
-      <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49270666" weight="0.3440367" />
+      <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49270666" weight="0.3428899" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32873562" />
       <window_info anchor="bottom" id="SVN Repositories" order="13" weight="0.32988507" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -419,29 +631,30 @@
       <window_info anchor="right" x="0" y="0" width="206" height="543" id="Documentation" order="6" side_tool="true" weight="0.32910156" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.2760736" />
+      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.2884927" />
       <window_info id="Structure" order="1" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info id="Favorites" order="2" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32821724" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32656515" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39905548" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3275862" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3264368" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39885056" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32912844" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49957156" weight="0.32821724" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029991" side_tool="true" weight="0.3293979" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32656515" />
-      <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49700084" weight="0.3468697" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="right" x="0" y="0" width="206" height="543" id="Documentation" order="0" side_tool="true" weight="0.32924336" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32990575" />
-      <window_info anchor="right" auto_hide="true" id="SciView" order="5" show_stripe_button="false" type="FLOATING" />
-      <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.32990575" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289941" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49675852" weight="0.31954023" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4943274" weight="0.23448277" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50567263" side_tool="true" weight="0.24022989" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32528734" />
+      <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49270666" weight="0.3440367" />
+      <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32873562" />
+      <window_info anchor="bottom" id="SVN Repositories" order="13" weight="0.32988507" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.38330632" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.3298217" />
+      <window_info anchor="right" id="Coverage" order="5" side_tool="true" weight="0.32990575" />
+      <window_info anchor="right" x="0" y="0" width="206" height="543" id="Documentation" order="6" side_tool="true" weight="0.32910156" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,17 +725,19 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bucketlist$read_repo.coverage" NAME="read_repo Coverage Results" MODIFIED="1561721114690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/bucketlist$repo.coverage" NAME="repo Coverage Results" MODIFIED="1562136760751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bucketlist$pygithub.coverage" NAME="pygithub Coverage Results" MODIFIED="1562317127404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bucketlist$repo.coverage" NAME="repo Coverage Results" MODIFIED="1562316924874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bucketlist$repo__1_.coverage" NAME="repo (1) Coverage Results" MODIFIED="1562594987232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_git" />
     <SUITE FILE_PATH="coverage/bucketlist$Unittests_in_test_bucketlist_py.coverage" NAME="Unittests in test_bucketlist.py Coverage Results" MODIFIED="1560924976705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bucketlist$temp.coverage" NAME="temp Coverage Results" MODIFIED="1562845313751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projectgit" />
     <SUITE FILE_PATH="coverage/bucketlist$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1560925745625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/bucketlist$setup.coverage" NAME="setup Coverage Results" MODIFIED="1560928593862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bucketlist$repo__2_.coverage" NAME="repo (2) Coverage Results" MODIFIED="1563211413349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projectgit" />
     <SUITE FILE_PATH="coverage/bucketlist$manage.coverage" NAME="manage Coverage Results" MODIFIED="1561454457692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bucketlist$run.coverage" NAME="run Coverage Results" MODIFIED="1561454467813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bucketlist$repo_new.coverage" NAME="repo_new Coverage Results" MODIFIED="1562596203222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project_git" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.groovy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file:///usr/lib/python2.7/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -613,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -646,7 +854,6 @@
     <entry file="file://$PROJECT_DIR$/gitpython.py" />
     <entry file="file://$PROJECT_DIR$/repo/repo.py" />
     <entry file="file://$PROJECT_DIR$/repo/read_repo.py" />
-    <entry file="file://$PROJECT_DIR$/temp.py" />
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -656,56 +863,126 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/git/__init__.py" />
     <entry file="file://$PROJECT_DIR$/git/repo.py" />
-    <entry file="file://$PROJECT_DIR$/project_git/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_git/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_git/credentials.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="16" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_git/repo.py">
+    <entry file="file://$PROJECT_DIR$/project_git/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/project_git/repo_new.py" />
+    <entry file="file://$PROJECT_DIR$/project_git/credentials.py" />
+    <entry file="file://$PROJECT_DIR$/project_git/exceptions.py" />
+    <entry file="file://$PROJECT_DIR$/project_git/pullrequest.py" />
+    <entry file="file://$PROJECT_DIR$/project_git/repo.py" />
+    <entry file="file://$PROJECT_DIR$/repo_shell.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/keyring/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/urllib2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6390" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/github/Requester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="285" selection-start-line="285" selection-end-line="285" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pygithub.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="990">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/repo_shell.py">
+    <entry file="file://$PROJECT_DIR$/projectgit/temp.py" />
+    <entry file="file://$PROJECT_DIR$/projectgit/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="148" column="10" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp.py" />
+    <entry file="file://$PROJECT_DIR$/temp1.py" />
+    <entry file="file://$PROJECT_DIR$/newfile.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/github/MainClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="283" column="8" selection-start-line="283" selection-start-column="8" selection-end-line="283" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/github/Repository.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="1906" selection-start-line="1906" selection-end-line="1906" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectgit/requirements.txt" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectgit/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/pygit2/repository.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="1244" selection-start-line="1244" selection-end-line="1244" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectgit/credentials.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="419" column="23" lean-forward="true" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectgit/pullrequest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

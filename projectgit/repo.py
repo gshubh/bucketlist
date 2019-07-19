@@ -38,7 +38,7 @@ def _get_head_commit(repo, branch_name):
 def _get_commit(repo, sha):
     """
     :param sha:
-    :return:
+    :return: unicode
     """
     return repo.get_commit(sha)
 
@@ -240,6 +240,18 @@ def _get_branches(repo):
     return repo.get_branches()
 
 
+def get_current_working_branch(repo):
+    """
+    :param repo:
+    :return: current working branch
+    """
+
+    head = repo.lookup_reference('HEAD').resolve()
+    head = repo.head
+    branch_name = head.name
+    print (branch_name)
+
+
 def create_new_branch(repo, name):
     """Gets the branch and raises a MissingBranchException
     if it doesn't exist
@@ -256,7 +268,7 @@ def create_new_branch(repo, name):
                                         'To create new branch give some different name'.format(name))
 
 
-def _checkout_branch(branch):
+def _checkout_branch(branch_name):
     """
     Checks out the branch specified locally
     :param Repo repo:
@@ -265,61 +277,24 @@ def _checkout_branch(branch):
     :rtype: git.refs.head.Head
     """
     repo = pygit2.Repository("gshubh/bucketlist")
-    branch = repo.lookup_branch(branch)
+    branch = repo.lookup_branch(branch_name)
     _LOG.info('Checking out branch "{0}"'.format(branch.name))
     ref = repo.lookup_reference(branch.name)
     return repo.checkout(ref)
 
 
 def _merge_branch_to_master(repo, working_branch):
+    """
+    :param repo:
+    :param working_branch: Branch which we want to merge to master
+    :return: None
+    """
     try:
-        # base = repo.get_branch("master")
         head = repo.get_branch(working_branch)
-
-        merge_to_master = repo.merge("master",
-                                     head.commit.sha, "merge to master")
+        merge_to_master = repo.merge("master", head.commit.sha, "merge to master")
         print (merge_to_master)
     except Exception as ex:
         print (ex)
-
-
-def _merge_base_into_repo(repo, branch_name, base_name):
-    """
-    Merge the branch with the ``base_name`` into the ``branch_name``
-    :param Repo repo:
-    :param unicode branch_name:
-    :param unicode base_name:
-    """
-    _checkout_branch(repo, branch_name)
-    # ensure the branches exist
-    base = _get_branch(repo, base_name)
-    branch = _get_branch(repo, branch_name)
-
-    # When the log is empty that means there are no
-    # commits on the base that are not on the branch
-    if not repo.git.log('{0}..{1}'.format(branch, base)):
-        return
-    _LOG.info('Merging "{0}" into "{1}"'.format(base, branch))
-    repo.git.merge(base_name, commit=True)
-
-
-def merge_base_into_branch_and_push(repo, branch_name, url, to_path, user_name, base_name='master'):
-    """
-    Merges the branch with the ``base_name`` into the
-    branch ``branch_name`` from the repo at the ``path``
-    or the current working directory.  Finally, pushes
-    the resulting commit up to the specified remote branch
-    :param repo:
-    :param branch_name:
-    :param url:
-    :param to_path:
-    :param user_name:
-    :param base_name:
-    :return:
-    """
-    _checkout_branch(repo, branch_name)
-    _merge_base_into_repo(repo, branch_name, base_name)
-    clone_and_push_repo(repo, url, to_path, user_name)
 
 
 def _delete_branch(repo,name):
@@ -442,11 +417,12 @@ def _create_issue_with_milestone(repo):
 
 
 def main():
-    # username = "gshubh"
-    # password = get_github_password(username, refresh=False)
-    # g = Github(username, password)
-    # repo = g.get_repo("gshubh/bucketlist")
-    print (_checkout_branch("new"))
+    username = "gshubh"
+    password = get_github_password(username, refresh=False)
+    g = Github(username, password)
+    repo = g.get_repo("gshubh/bucketlist")
+    # construct_message(repo, "new", "master")
+    clone_and_push_repo(repo, "https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/new", "gshubh")
 
 if __name__ == '__main__':
     main()
