@@ -415,7 +415,7 @@ def main():
     repo = g.get_repo("gshubh/bucketlist")
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
     print (commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com"))
-    print (push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist"))
+    # print (push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist"))
 
 if __name__ == '__main__':
     main()
