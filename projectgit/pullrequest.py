@@ -5,8 +5,6 @@ from __future__ import unicode_literals
 
 import logging
 from uuid import uuid4
-from six.moves import input
-
 from github import Github
 from github.GithubException import GithubException, BadCredentialsException, TwoFactorException
 from git import Repo
@@ -140,6 +138,7 @@ def create_pull_request(path, branch, base, username, remote):
     repo = _get_repo(path)
     remote_repo = _get_current_repo(github, repo, remote)
     return _create_pull_request_helper(repo, remote_repo, branch, base, auth=auth)
+
 
 if __name__ == '__main__':
     create_pull_request("/home/ubuntu-1804/Desktop/bucketlist", "new", "master", "gshubh", "origin")
