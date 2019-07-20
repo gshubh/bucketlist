@@ -55,7 +55,7 @@ def _get_relevant_commit_shas(repo, base, branch):
     # regex for parsing the commit sha from the git log
     # ignores merges
     regex = re.compile(r'commit ([a-z0-9]{40})\n(?!Merge)')
-    git_log = repo.git.log('{0}..{1}'.format(base, branch))
+    git_log = repo.log('{0}..{1}'.format(base, branch))
     return re.findall(regex, git_log)
 
 
@@ -117,15 +117,17 @@ def _get_messages(commits):
 
 
                                             ###   REPOSITORY   ###
-def init(repo):
+
+
+def _create_repo(g, full_name):
     """
-    Create a directory for the repo and initialize .git directory
-    :param Repo repo:
+    :param g: github(username, password)
+    :param full_name: name of newly created repository
+    :return:
     """
-    os.mkdir(os.path.join(repo, '.git'))
-    for name in ['objects', 'refs', 'refs/heads']:
-        os.mkdir(os.path.join(repo, '.git', name))
-    print('initialized empty repository: {}'.format(repo))
+    user = g.get_user()
+    repo = user.create_repo(full_name)
+    return repo
 
 
 def _get_repo(path=None):
@@ -138,31 +140,7 @@ def _get_repo(path=None):
     :rtype: git.repo.base.Repo
     """
     path = path or getcwd()
-    return Repo(path)
-
-
-def clone_and_push_repo(repo, url, to_path, user_name):
-    """
-    clone repository, change files in it and then push it back to github
-    :param repo: Repo
-    :param url: Repository url
-    :param to_path: /path/to/clone/to
-    :param user_name: github_username
-    """
-    repoclone = _clone_repo(url, to_path)
-    repoclone.remotes.set_url("origin", repo.clone_url)
-    remote = repoclone.remotes["origin"]
-    username = user_name
-    password = get_github_password(username, refresh=False)
-    credentials = pygit2.UserPass(username, password)
-    remote.credentials = credentials
-    callbacks = pygit2.RemoteCallbacks(credentials=credentials)
-    try:
-        remote.push(['refs/heads/master'], callbacks=callbacks)
-    except GitCommandError as e:
-        _LOG.error(str(e))
-        raise PushFailedException('Uh oh, it seems like something went'
-                                  ' wrong with the push. "{0}"'.format(str(e)))
+    print (Repo(path))
 
 
 def _clone_repo(url, to_path):
@@ -177,42 +155,59 @@ def _clone_repo(url, to_path):
         raise MissingRepoException('The remote repo does not exist. Please select a different repository')
 
 
-def _get_remote(repo, name):
+def commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
     """
-    Gets the remote object raising a MissingRemoteException
-    when it does not exist
-    :param Repo repo:
-    :param unicode name: The remote name
-    :return: The remote object
-    :rtype: git.remote.Remote
-    :raises: MissingRemoteException
+
+    :param repo:
+    :param cloned_repo_directory: path/to/repo_directory
+    :param author_name:
+    :param author_email:
+    :param commiter_name:
+    :param commiter_email:
+    :return:
     """
-    try:
-        return repo.remotes[name]
-    except IndexError:  # I have no idea why they raise an IndexError instead of KeyError
-        raise MissingRemoteException('The remote "{0}" does not exist.  '
-                                     'Please select a different remote or'
-                                     ' add it using "git remote add" command')
+    repoclone = pygit2.Repository(cloned_repo_directory + "/.git/")
+    repoclone.remotes.set_url("origin", repo.clone_url)
+    index = repoclone.index
+    index.add_all()
+    index.write()
+    author = pygit2.Signature("/home/ubuntu-1804/Desktop/shubh", "gshubh")
+    commiter = pygit2.Signature(commiter_name, commiter_email)
+    tree = index.write_tree()
+    return repoclone.create_commit('refs/heads/master', author, commiter, "init commit", tree,
+                                  [repoclone.head.peel().hex])
 
 
-def _delete_repo(repo, name):
-    """
-    Deletes the branch and raises a MissingRepoException
-    if it doesn't exist
-    :param Repo repo:
-    :param unicode name: The name of the branch
-    :return: The branch object
-    :rtype: git.refs.head.Head
-    :raises: MissingBranchException
-    """
+def push_to_repo(user_name, cloned_repo_directory):
+
+    repoclone = pygit2.Repository(cloned_repo_directory + "/.git/")
+    remote = repoclone.remotes["origin"]
+    username = user_name
+    password = get_github_password(username, refresh=False)
+    credentials = pygit2.UserPass(username, password)
+    remote.credentials = credentials
+    callbacks = pygit2.RemoteCallbacks(credentials=credentials)
     try:
-        repo.git.__del__()
-        return repo.branches()
-    except IndexError:
-        raise MissingRepoException('The remote "{0}" does not exist. Please select a different repository'.format(name))
+        remote.push(['refs/heads/master'], callbacks=callbacks)
+    except GitCommandError as e:
+        _LOG.error(str(e))
+        raise PushFailedException('Uh oh, it seems like something went'
+                                  ' wrong with the push. "{0}"'.format(str(e)))
 
 
                                             ###   Branches   ###
+
+def get_current_working_branch(repo):
+    """
+    :param repo:
+    :return: current working branch
+    """
+
+    head = repo.lookup_reference('HEAD').resolve()
+    head = repo.head
+    branch_name = head.name
+    print (branch_name)
+
 
 def _get_branch(repo, name):
     """
@@ -229,7 +224,8 @@ def _get_branch(repo, name):
     except IndexError:
         raise MissingBranchException('The branch "{0}" does not seem to exist'.format(name))
 
-def _get_branches(repo):
+
+def _get_branches_list(repo):
     """
     Gets the branch and raises a MissingBranchException
     if it doesn't exist
@@ -237,19 +233,11 @@ def _get_branches(repo):
     :return: The branch object
     :rtype: git.refs.head.Head
     """
-    return repo.get_branches()
-
-
-def get_current_working_branch(repo):
-    """
-    :param repo:
-    :return: current working branch
-    """
-
-    head = repo.lookup_reference('HEAD').resolve()
-    head = repo.head
-    branch_name = head.name
-    print (branch_name)
+    branch_list = []
+    for branch in repo.get_branches():
+        branch_list.append(branch)
+    print (branch_list)
+    exit()
 
 
 def create_new_branch(repo, name):
@@ -266,21 +254,6 @@ def create_new_branch(repo, name):
     except IndexError:
         raise ExistingBranchException('Branch "{0}" already exist.'
                                         'To create new branch give some different name'.format(name))
-
-
-def _checkout_branch(branch_name):
-    """
-    Checks out the branch specified locally
-    :param Repo repo:
-    :param unicode branch:
-    :return: The branch object
-    :rtype: git.refs.head.Head
-    """
-    repo = pygit2.Repository("gshubh/bucketlist")
-    branch = repo.lookup_branch(branch_name)
-    _LOG.info('Checking out branch "{0}"'.format(branch.name))
-    ref = repo.lookup_reference(branch.name)
-    return repo.checkout(ref)
 
 
 def _merge_branch_to_master(repo, working_branch):
@@ -353,6 +326,19 @@ def delete_a_file(repo, path, sha, message, branch):
     """
     repo.delete_file(path, message, sha, branch)
 
+def commit_and_push_new_files(repo_dir, file_list, commit_message):
+    """
+
+    :param repo_dir: path of repository directory
+    :param file_list: list of path of all files which we want to add
+    :param commit_message: commit message
+    :return:
+    """
+    repo = Repo(repo_dir)
+    repo.index.add(file_list)
+    repo.index.commit(commit_message)
+    origin = repo.remote('origin')
+    origin.push()
                                         ###  ISSUES  ###
 
 
@@ -421,8 +407,9 @@ def main():
     password = get_github_password(username, refresh=False)
     g = Github(username, password)
     repo = g.get_repo("gshubh/bucketlist")
-    # construct_message(repo, "new", "master")
-    clone_and_push_repo(repo, "https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/new", "gshubh")
+    # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
+    commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
+    push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
 
 if __name__ == '__main__':
     main()
