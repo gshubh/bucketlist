@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/new_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectgit/pullrequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/pullrequest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
-    </list>
+    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="402" lean-forward="true" selection-start-line="402" selection-end-line="402" />
+            <state relative-caret-position="478">
+              <caret line="411" column="66" lean-forward="true" selection-start-line="411" selection-start-column="66" selection-end-line="411" selection-end-column="66" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -433,7 +428,7 @@
       <workItem from="1563365236454" duration="2581000" />
       <workItem from="1563368383760" duration="22000" />
       <workItem from="1563514097622" duration="12881000" />
-      <workItem from="1563624192042" duration="11352000" />
+      <workItem from="1563624192042" duration="12014000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -639,7 +634,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276338000" />
+    <option name="totallyTimeSpent" value="277000000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -654,7 +649,7 @@
     <frame x="0" y="25" width="1280" height="999" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.3249595" />
+      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.3249595" />
       <window_info id="Structure" order="1" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info id="Favorites" order="2" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -665,7 +660,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49675852" weight="0.31954023" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.493517" weight="0.2321839" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.493517" visible="true" weight="0.2321839" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50648296" side_tool="true" weight="0.23333333" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32528734" />
       <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49270666" weight="0.3428899" />
@@ -1037,8 +1032,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="402" lean-forward="true" selection-start-line="402" selection-end-line="402" />
+        <state relative-caret-position="478">
+          <caret line="411" column="66" lean-forward="true" selection-start-line="411" selection-start-column="66" selection-end-line="411" selection-end-column="66" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
