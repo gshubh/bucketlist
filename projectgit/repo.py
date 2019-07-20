@@ -164,7 +164,7 @@ def commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
     :param author_email:
     :param commiter_name:
     :param commiter_email:
-    :return:
+    :return: commit value
     """
     repoclone = pygit2.Repository(cloned_repo_directory + "/.git/")
     repoclone.remotes.set_url("origin", repo.clone_url)
@@ -414,8 +414,8 @@ def main():
     g = Github(username, password)
     repo = g.get_repo("gshubh/bucketlist")
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
-    print (commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com"))
-    # print (push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist"))
+    commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
+    push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
 
 if __name__ == '__main__':
     main()
