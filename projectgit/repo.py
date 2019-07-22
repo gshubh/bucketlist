@@ -503,7 +503,7 @@ def main():
     # _delete_branch(repo, "neew_branch")
     # create_new_branch(repo, "new_branch")
     # rebasing("/home/ubuntu-1804/Desktop/bucketlist", "new_branch", "gshubh", "skg31297@gmail.com", "Rebasing of neew_branch into master branch")
-    # git_pull("/home/ubuntu-1804/Desktop/bucketlist", remote_name="origin", branch="master")
+    git_pull("/home/ubuntu-1804/Desktop/bucketlist", remote_name="origin", branch="master")
     # _get_branches_list(repo)
 
 if __name__ == '__main__':
