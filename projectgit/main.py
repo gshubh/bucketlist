@@ -12,7 +12,7 @@ def main_menu():
     print("5. Push To Repository")
 
     print("                     #######  BRANCHES  #######      ")
-    print("6. Get Current Working Branches")
+    print("6. Get Current Working Branch")
     print("7. Get Branch")
     print("8. Get Branches List")
     print("9. Checkout Branch")
@@ -45,6 +45,7 @@ def getchoice():
 
 
 def replymenu ():
+
     choice = getchoice()
 
     if choice == 1:
@@ -81,4 +82,16 @@ def replymenu ():
         cloned_repo_directory = str(input('Enter the path/to/cloned_repo_directory:'))
         _push_to_repo(user_name, cloned_repo_directory)
         main_menu()
+
+    elif choice == 6:
+        path_to_repo = str(input('Enter the path/to/repository:'))
+        _get_current_working_branch(path_to_repo)
+
+    elif choice == 7:
+        path_to_repo = str(input('Enter the path/to/repository:'))
+        _get_branch(repo, name)
+
+    elif choice == 8:
+        path_to_repo = str(input('Enter the path/to/repository:'))
+        _get_current_working_branch(path_to_repo)
 
