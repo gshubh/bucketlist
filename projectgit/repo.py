@@ -171,7 +171,7 @@ def commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
     index = repoclone.index
     index.add_all()
     index.write()
-    author = pygit2.Signature("/home/ubuntu-1804/Desktop/shubh", "gshubh")
+    author = pygit2.Signature("gshubh", "skg31297@gmail.com")
     commiter = pygit2.Signature(commiter_name, commiter_email)
     tree = index.write_tree()
     return repoclone.create_commit('refs/heads/master', author, commiter, "init commit", tree,
@@ -274,6 +274,33 @@ def _merge_branch_to_master(repo, working_branch):
         print (merge_to_master)
     except Exception as ex:
         print (ex)
+
+
+def rebasing(repo, branch_name, commiter_name, commiter_email, commit_message):
+    """
+    Rebasing one branch on master branch
+    :param repo: Repository
+    :param branch_name: Branch name needs to be rebased on master branch
+    :param commiter_name:
+    :param commiter_email:
+    :param commit_message:
+    :return:
+    """
+    author = pygit2.Signature("gshubh", "skg31297@gmail.com")
+    commiter = pygit2.Signature(commiter_name, commiter_email)
+
+    branch = repo.lookup_branch(branch_name)
+    master_branch = repo.lookup_branch("master")
+
+    base = repo.merge_base(master_branch.target, branch.target)
+    tree_master = repo.get(master_branch.target).tree
+    treec = repo.get(branch.target).tree
+    base_tree = repo.get(base).tree
+
+    repo.checkout(master_branch)
+    index = repo.merge_trees(base_tree, tree_master, treec)
+    tree_id = index.write_tree(repo)
+    repo.create_commit(branch.name, author, commiter, commit_message, tree_id, [master_branch.target])
 
 
 def _delete_branch(repo,name):
