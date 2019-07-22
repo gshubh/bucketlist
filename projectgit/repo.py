@@ -402,14 +402,14 @@ def git_pull(path_to_repo, remote_name='origin', branch='master'):
             if merge_result & pygit2.GIT_MERGE_ANALYSIS_UP_TO_DATE:
                 return
             # We can just fastforward
-            # elif merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:
-            #     repo.checkout_tree(repo.get(remote_master_id))
-            #     try:
-            #         master_ref = repo.lookup_reference('refs/heads/%s' % (branch))
-            #         master_ref.set_target(remote_master_id)
-            #     except KeyError:
-            #         repo.create_branch(branch, repo.get(remote_master_id))
-            #     repo.head.set_target(remote_master_id)
+            elif merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:
+                repo.checkout_tree(repo.get(remote_master_id))
+                try:
+                    master_ref = repo.lookup_reference('refs/heads/%s' % (branch))
+                    master_ref.set_target(remote_master_id)
+                except KeyError:
+                    repo.create_branch(branch, repo.get(remote_master_id))
+                repo.head.set_target(remote_master_id)
             elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:
                 repo.merge(remote_master_id)
 
