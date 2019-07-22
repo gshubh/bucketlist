@@ -14,7 +14,6 @@ from os import getcwd
 from git import Repo, Commit, Git
 from git.exc import GitCommandError
 from github import Github
-from pygit2 import Repository
 from projectgit.exceptions import *
 from projectgit.credentials import *
 
@@ -300,7 +299,7 @@ def rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_me
     author = pygit2.Signature("gshubh", "skg31297@gmail.com")
     commiter = pygit2.Signature(commiter_name, commiter_email)
 
-    branch = repo.lookup_branch("new_branch")
+    branch = repo.lookup_branch("remotes/origin/new_branch")
     master_branch = repo.lookup_branch("master")
     print (branch.target)
 
@@ -384,6 +383,50 @@ def commit_and_push_new_files(repo_dir, file_list, commit_message):
     repo.index.commit(commit_message)
     origin = repo.remote('origin')
     origin.push()
+
+
+def git_pull(path_to_repo, remote_name='origin', branch='master'):
+    """
+    :param repo:
+    :param remote_name:
+    :param branch:
+    :return:
+    """
+    repo = pygit2.Repository(path_to_repo)
+    for remote in repo.remotes:
+        if remote.name == remote_name:
+            remote.fetch()
+            remote_master_id = repo.lookup_reference('refs/remotes/origin/%s' % (branch)).target
+            merge_result, _ = repo.merge_analysis(remote_master_id)
+            # Up to date, do nothing
+            if merge_result & pygit2.GIT_MERGE_ANALYSIS_UP_TO_DATE:
+                return
+            # We can just fastforward
+            # elif merge_result & pygit2.GIT_MERGE_ANALYSIS_FASTFORWARD:
+            #     repo.checkout_tree(repo.get(remote_master_id))
+            #     try:
+            #         master_ref = repo.lookup_reference('refs/heads/%s' % (branch))
+            #         master_ref.set_target(remote_master_id)
+            #     except KeyError:
+            #         repo.create_branch(branch, repo.get(remote_master_id))
+            #     repo.head.set_target(remote_master_id)
+            elif merge_result & pygit2.GIT_MERGE_ANALYSIS_NORMAL:
+                repo.merge(remote_master_id)
+
+                if repo.index.conflicts is not None:
+                    for conflict in repo.index.conflicts:
+                        print ('Conflicts found in:', conflict[0].path)
+                    raise AssertionError('Conflicts, ahhhhh!!')
+
+                user = repo.default_signature
+                tree = repo.index.write_tree()
+                commit = repo.create_commit('HEAD', user, user, "Merge!", tree, [repo.head.target, remote_master_id])
+                # We need to do this or git CLI will think we are still merging.
+                repo.state_cleanup()
+            else:
+                raise AssertionError('Unknown merge analysis result')
+
+
                                         ###  ISSUES  ###
 
 
@@ -455,12 +498,13 @@ def main():
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
     commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
     push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
-    # print (git_checkout("/home/ubuntu-1804/Desktop/bucketlist", "new"))
+    # print (git_checkout("/home/ubuntu-1804/Desktop/bucketlist", "master"))
     # get_current_working_branch("/home/ubuntu-1804/Desktop/bucketlist")
     # _delete_branch(repo, "neew_branch")
     # create_new_branch(repo, "new_branch")
     # rebasing("/home/ubuntu-1804/Desktop/bucketlist", "new_branch", "gshubh", "skg31297@gmail.com", "Rebasing of neew_branch into master branch")
-
+    # git_pull("/home/ubuntu-1804/Desktop/bucketlist", remote_name="origin", branch="master")
+    # _get_branches_list(repo)
 
 if __name__ == '__main__':
     main()
