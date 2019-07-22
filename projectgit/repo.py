@@ -160,8 +160,6 @@ def commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
 
     :param repo:
     :param cloned_repo_directory: path/to/repo_directory
-    :param author_name:
-    :param author_email:
     :param commiter_name:
     :param commiter_email:
     :return: commit value
@@ -203,16 +201,27 @@ def push_to_repo(user_name, cloned_repo_directory):
 
                                             ###   Branches   ###
 
-def get_current_working_branch(repo):
+def get_current_working_branch(path_to_repo):
     """
     :param repo:
     :return: current working branch
     """
-
+    repo = pygit2.Repository(path_to_repo)
     head = repo.lookup_reference('HEAD').resolve()
     head = repo.head
     branch_name = head.name
     print (branch_name)
+
+
+def git_checkout(path_to_repo, branch_name):
+    """
+    :param repo:
+    :param branch_name: Name of the branch which we want ot switch to
+    :return:
+    """
+    repo = pygit2.Repository(path_to_repo)
+    branch = repo.lookup_branch(branch_name)
+    repo.checkout(branch)
 
 
 def _get_branch(repo, name):
@@ -276,7 +285,7 @@ def _merge_branch_to_master(repo, working_branch):
         print (ex)
 
 
-def rebasing(repo, branch_name, commiter_name, commiter_email, commit_message):
+def rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_message):
     """
     Rebasing one branch on master branch
     :param repo: Repository
@@ -286,21 +295,24 @@ def rebasing(repo, branch_name, commiter_name, commiter_email, commit_message):
     :param commit_message:
     :return:
     """
+    repo = pygit2.Repository(path_to_repo)
+
     author = pygit2.Signature("gshubh", "skg31297@gmail.com")
     commiter = pygit2.Signature(commiter_name, commiter_email)
 
-    branch = repo.lookup_branch(branch_name)
+    branch = repo.lookup_branch("new_branch")
     master_branch = repo.lookup_branch("master")
+    print (branch.target)
 
-    base = repo.merge_base(master_branch.target, branch.target)
-    tree_master = repo.get(master_branch.target).tree
-    treec = repo.get(branch.target).tree
-    base_tree = repo.get(base).tree
-
-    repo.checkout(master_branch)
-    index = repo.merge_trees(base_tree, tree_master, treec)
-    tree_id = index.write_tree(repo)
-    repo.create_commit(branch.name, author, commiter, commit_message, tree_id, [master_branch.target])
+    # base = repo.merge_base(master_branch.target, branch.target)
+    # tree_master = repo.get(master_branch.target).tree
+    # treec = repo.get(branch.target).tree
+    # base_tree = repo.get(base).tree
+    #
+    # repo.checkout(master_branch)
+    # index = repo.merge_trees(base_tree, tree_master, treec)
+    # tree_id = index.write_tree(repo)
+    # repo.create_commit(branch.name, author, commiter, commit_message, tree_id, [master_branch.target])
 
 
 def _delete_branch(repo,name):
@@ -443,6 +455,12 @@ def main():
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
     commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
     push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
+    # print (git_checkout("/home/ubuntu-1804/Desktop/bucketlist", "new"))
+    # get_current_working_branch("/home/ubuntu-1804/Desktop/bucketlist")
+    # _delete_branch(repo, "neew_branch")
+    # create_new_branch(repo, "new_branch")
+    # rebasing("/home/ubuntu-1804/Desktop/bucketlist", "new_branch", "gshubh", "skg31297@gmail.com", "Rebasing of neew_branch into master branch")
+
 
 if __name__ == '__main__':
     main()
