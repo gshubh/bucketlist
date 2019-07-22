@@ -87,7 +87,7 @@ def _construct_summary(relevant_commits):
     return relevant_commits[0].summary
 
 
-def construct_message(repo, base, branch):
+def _construct_message(repo, base, branch):
     """
     Constructs a message that contains all of the
     commits message that are unique to the given branch
@@ -154,7 +154,7 @@ def _clone_repo(url, to_path):
         raise MissingRepoException('The remote repo does not exist. Please select a different repository')
 
 
-def commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
+def _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
     """
 
     :param repo:
@@ -175,7 +175,7 @@ def commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
                                   [repoclone.head.peel().hex])
 
 
-def push_to_repo(user_name, cloned_repo_directory):
+def _push_to_repo(user_name, cloned_repo_directory):
     """
 
     :param user_name: github username
@@ -200,7 +200,7 @@ def push_to_repo(user_name, cloned_repo_directory):
 
                                             ###   Branches   ###
 
-def get_current_working_branch(path_to_repo):
+def _get_current_working_branch(path_to_repo):
     """
     :param repo:
     :return: current working branch
@@ -212,7 +212,7 @@ def get_current_working_branch(path_to_repo):
     print (branch_name)
 
 
-def git_checkout(path_to_repo, branch_name):
+def _git_checkout(path_to_repo, branch_name):
     """
     :param repo:
     :param branch_name: Name of the branch which we want ot switch to
@@ -254,7 +254,7 @@ def _get_branches_list(repo):
     exit()
 
 
-def create_new_branch(repo, name):
+def _create_new_branch(repo, name):
     """Gets the branch and raises a MissingBranchException
     if it doesn't exist
     :param Repo repo:
@@ -284,7 +284,7 @@ def _merge_branch_to_master(repo, working_branch):
         print (ex)
 
 
-def rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_message):
+def _rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_message):
     """
     Rebasing one branch on master branch
     :param repo: Repository
@@ -303,15 +303,15 @@ def rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_me
     master_branch = repo.lookup_branch("master")
     print (branch.target)
 
-    # base = repo.merge_base(master_branch.target, branch.target)
-    # tree_master = repo.get(master_branch.target).tree
-    # treec = repo.get(branch.target).tree
-    # base_tree = repo.get(base).tree
-    #
-    # repo.checkout(master_branch)
-    # index = repo.merge_trees(base_tree, tree_master, treec)
-    # tree_id = index.write_tree(repo)
-    # repo.create_commit(branch.name, author, commiter, commit_message, tree_id, [master_branch.target])
+    base = repo.merge_base(master_branch.target, branch.target)
+    tree_master = repo.get(master_branch.target).tree
+    treec = repo.get(branch.target).tree
+    base_tree = repo.get(base).tree
+
+    repo.checkout(master_branch)
+    index = repo.merge_trees(base_tree, tree_master, treec)
+    tree_id = index.write_tree(repo)
+    repo.create_commit(branch.name, author, commiter, commit_message, tree_id, [master_branch.target])
 
 
 def _delete_branch(repo,name):
@@ -334,7 +334,7 @@ def _delete_branch(repo,name):
                                             ###   FILES   ###
 
 
-def create_new_file(repo, path, message, content,  branch):
+def _create_new_file(repo, path, message, content,  branch):
     """
     To create new file inside the repository
     parameters
@@ -345,7 +345,7 @@ def create_new_file(repo, path, message, content,  branch):
     repo.create_file(path, message, content, branch=branch)
 
 
-def update_a_file(repo, path, message, content, sha, branch):
+def _update_a_file(repo, path, message, content, sha, branch):
     """
     Update a file in the repository
     parameters
@@ -358,7 +358,7 @@ def update_a_file(repo, path, message, content, sha, branch):
     repo.update_file(path, message, content, sha, branch)
 
 
-def delete_a_file(repo, path, sha, message, branch):
+def _delete_a_file(repo, path, sha, message, branch):
     """
     Update a file in the repository
     parameters
@@ -370,7 +370,7 @@ def delete_a_file(repo, path, sha, message, branch):
     """
     repo.delete_file(path, message, sha, branch)
 
-def commit_and_push_new_files(repo_dir, file_list, commit_message):
+def _commit_and_push_new_files(repo_dir, file_list, commit_message):
     """
 
     :param repo_dir: path of repository directory
@@ -385,7 +385,7 @@ def commit_and_push_new_files(repo_dir, file_list, commit_message):
     origin.push()
 
 
-def git_pull(path_to_repo, remote_name='origin', branch='master'):
+def _git_pull(path_to_repo, remote_name='origin', branch='master'):
     """
     :param repo:
     :param remote_name:
@@ -490,21 +490,26 @@ def _create_issue_with_milestone(repo):
     repo.create_issue(title="This is a new issue", milestone=milestone)
 
 
-def main():
-    username = "gshubh"
+def _get_username_and_password(username):
     password = get_github_password(username, refresh=False)
     g = Github(username, password)
+    return g
+
+
+def main():
+    g = _get_username_and_password("gshubh")
     repo = g.get_repo("gshubh/bucketlist")
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
-    commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
-    push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
+    _commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
+    _push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
     # print (git_checkout("/home/ubuntu-1804/Desktop/bucketlist", "master"))
     # get_current_working_branch("/home/ubuntu-1804/Desktop/bucketlist")
     # _delete_branch(repo, "neew_branch")
     # create_new_branch(repo, "new_branch")
     # rebasing("/home/ubuntu-1804/Desktop/bucketlist", "new_branch", "gshubh", "skg31297@gmail.com", "Rebasing of neew_branch into master branch")
-    git_pull("/home/ubuntu-1804/Desktop/bucketlist", remote_name="origin", branch="master")
+    # _git_pull("/home/ubuntu-1804/Desktop/bucketlist", remote_name="origin", branch="master")
     # _get_branches_list(repo)
+    # _get_repo("/home/ubuntu-1804/Desktop/bucketlist")
 
 if __name__ == '__main__':
     main()
