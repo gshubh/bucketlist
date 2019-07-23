@@ -518,5 +518,6 @@ def test():
     # _merge_branch_to_master(repo, "new_branch")
     # _delete_a_file(repo, "temp3.py", "Remove temp3.py", "new_branch", "new_branch")
 
+
 if __name__ == '__main__':
     test()

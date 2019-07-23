@@ -133,7 +133,7 @@ def replymenu ():
         commiter_name = str(input('Enter Commiter name: '))
         commiter_email = str(input('Enter Commiter email_address: '))
         commit_message = str(input('Enter Commit message: '))
-        _rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_message)        main_menu()
+        _rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_message)
         main_menu()
 
     elif choice == 13:
@@ -227,9 +227,17 @@ def replymenu ():
         _create_issue_with_milestone(repo)
         main_menu()
 
-    elif choice = 25:
+    elif choice == 25:
         exit()
 
     else:
         print ("Invalid choice selection")
         main_menu()
+
+def main():
+    main_menu()
+    replymenu()
+
+
+if __name__ == '__main__':
+    main()
