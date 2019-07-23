@@ -515,7 +515,7 @@ def main():
     # _get_branches_list(repo)
     # _get_repo("/home/ubuntu-1804/Desktop/bucketlist")
     # _merge_branch_to_master(repo, "new_branch")
-    _delete_a_file(repo, "temp3.py", "Remove temp3.py", "new_branch", "new_branch")
+    # _delete_a_file(repo, "temp3.py", "Remove temp3.py", "new_branch", "new_branch")
 
 if __name__ == '__main__':
     main()
