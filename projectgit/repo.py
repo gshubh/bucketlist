@@ -360,6 +360,7 @@ def _update_a_file(repo, file_path, content, commit_message, ref, branch):
     contents = repo.get_contents(file_path, ref)
     print (repo.update_file(contents.path, content, commit_message, contents.sha, branch))
 
+
 def _delete_a_file(repo, file_path, commit_message, ref, branch):
     """
     To delete file inside the repository
@@ -374,9 +375,9 @@ def _delete_a_file(repo, file_path, commit_message, ref, branch):
     contents = repo.get_contents(file_path, ref)
     print (repo.delete_file(contents.path, commit_message, contents.sha, branch))
 
+
 def _commit_and_push_new_files(repo_dir, file_list, commit_message):
     """
-
     :param repo_dir: path of repository directory
     :param file_list: list of path of all files which we want to add
     :param commit_message: commit message
@@ -500,7 +501,7 @@ def _get_username_and_password(username):
     return g
 
 
-def main():
+def test():
     g = _get_username_and_password("gshubh")
     repo = g.get_repo("gshubh/bucketlist")
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
@@ -518,4 +519,4 @@ def main():
     # _delete_a_file(repo, "temp3.py", "Remove temp3.py", "new_branch", "new_branch")
 
 if __name__ == '__main__':
-    main()
+    test()

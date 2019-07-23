@@ -15,7 +15,7 @@ def main_menu():
     print("1. Clone Repository")
     print("2. Create Repository")
     print("3. Get Repository")
-    print("4. Commit Repository")
+    print("4. Commit and Push to Repository")
     print("5. Push To Repository")
 
     print("                     #######  BRANCHES  #######      ")
@@ -75,12 +75,14 @@ def replymenu ():
         main_menu()
 
     elif choice == 4:
+        user_name = str(input('Enter your Github username: '))
         commiter_name = str(input('Enter Commiter name: '))
         commiter_email = str(input('Enter Commiter email_address: '))
         cloned_repo_directory = str(input('Enter the path/to/cloned_repo_directory: '))
         g = _get_username_and_password("gshubh")
         repo = g.get_repo("gshubh/bucketlist")
         _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email)
+        _push_to_repo(user_name, cloned_repo_directory)
         main_menu()
 
     elif choice == 5:
@@ -144,22 +146,90 @@ def replymenu ():
     elif choice == 14:
         g = _get_username_and_password("gshubh")
         repo = g.get_repo("gshubh/bucketlist")
-        path = str(input('Enter the path/to/repository: '))
-        message = str(input('Enter Commit message: '))
+        file_path = str(input('Enter the file path inside the project directory: '))
+        commit_message = str(input('Enter Commit message: '))
         content = str(input('Enter the content which you want to add to the file: '))
         branch = str(input('Enter the branch name: '))
-        _create_new_file(repo, path, message, content, branch)        main_menu()
+        _create_new_file(repo, file_path, content, commit_message, branch)
+        main_menu()
 
     elif choice == 15:
         g = _get_username_and_password("gshubh")
         repo = g.get_repo("gshubh/bucketlist")
-        path = str(input('Enter the path/to/repository: '))
-        sha = str(input('Enter the blob sha of file: '))
-        message = str(input('Enter Commit message: '))
+        file_path = str(input('Enter the path/to/repository: '))
+        commit_message = str(input('Enter Commit message: '))
         content = str(input('Enter the content which you want to add to the file: '))
         branch = str(input('Enter the branch name: '))
-        _update_a_file(repo, path, message, content, sha, branch)
+        ref = branch
+        _update_a_file(repo, file_path, content, commit_message, ref, branch)
 
+    elif choice == 16:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        file_path = str(input('Enter the path/to/repository: '))
+        commit_message = str(input('Enter Commit message: '))
+        branch = str(input('Enter the branch name: '))
+        ref = branch
+        _delete_a_file(repo, file_path, commit_message, ref, branch)
+        main_menu()
 
+    elif choice == 17:
+        repo_dir = str(input('Enter the path/to/repository: '))
+        commit_message = str(input('Enter Commit message: '))
+        file_list = input ("Array of path of files which you want to add: ")
+        _commit_and_push_new_files(repo_dir, file_list, commit_message)
+        main_menu()
 
+    elif choice == 18:
+        path_to_repo = str(input('Enter the path/to/repository: '))
+        _git_pull(path_to_repo, remote_name='origin', branch='master')
+        main_menu()
 
+    elif choice == 19:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        number = int(input('Enter the issue number: '))
+        _get_issue(repo, number)
+        main_menu()
+
+    elif choice == 20:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        title = str(input('Enter the issue title: '))
+        _create_issue(repo, title)
+        main_menu()
+
+    elif choice == 21:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        title = str(input('Enter the issue title: '))
+        body =  str(input('Enter the issue: '))
+        _create_issue_with_body(repo, title, body)
+        main_menu()
+
+    elif choice == 22:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        _create_issue_with_labels(repo)
+        main_menu()
+
+    elif choice == 23:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        title = str(input('Enter the issue title: '))
+        github_username =  str(input('Enter your github username: '))
+        _create_issue_with_body(repo, title, github_username)
+        main_menu()
+
+    elif choice == 24:
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
+        _create_issue_with_milestone(repo)
+        main_menu()
+
+    elif choice = 25:
+        exit()
+
+    else:
+        print ("Invalid choice selection")
+        main_menu()
