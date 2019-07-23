@@ -346,31 +346,33 @@ def _create_new_file(repo, path, message, content,  branch):
     print (repo.create_file(path, message, content, branch))
 
 
-def _update_a_file(repo, path, message, content, sha, branch):
+def _update_a_file(repo, file_path, content, commit_message, ref, branch):
     """
-    Update a file in the repository
-    parameters
-        path - string, (required), path of the file in the repository
-        message - string, (required), commit message
-        content - string, (required) actual data in the file
-        sha - string, (required), Th blob sha of file being replaced
-        branch - string. The branch name. Default: The repository's branch name (usually master)
+    :param repo: repository
+    :param file_path:  path of the inside the project folder like "projectgit/temp.py",
+        if we want to add temp.py in the bucketlist folder
+    :param content: Content which we want to add inside the file
+    :param commit_message:
+    :param ref: Branch name in string
+    :param branch:  Branch in which we want to do this operation
+    :return:
     """
-    print (repo.update_file(path, message, content, sha, branch))
+    contents = repo.get_contents(file_path, ref)
+    print (repo.update_file(contents.path, content, commit_message, contents.sha, branch))
 
-
-def _delete_a_file(repo, path, sha, message, branch):
+def _delete_a_file(repo, file_path, commit_message, ref, branch):
     """
-    Delete a file in the repository
-    parameters
-        :repo - repository
-        :path - string, (required), path of the file in the repository
-        :message - string, (required), commit message
-        :sha - string, (required), Th blob sha of file being replaced
-        :branch - string. The branch name. Default: The repository's branch name (usually master)
+    To delete file inside the repository
+    :param repo: repository
+    :param file_path: path of the inside the project folder like "projectgit/temp.py",
+        if we want to add temp.py in the bucketlist folder
+    :param commit_message:
+    :param ref: Branch name in string
+    :param branch: Branch in which we want to do this operation
+    :return:
     """
-    print (repo.delete_file(path, message, sha, branch))
-
+    contents = repo.get_contents(file_path, ref)
+    print (repo.delete_file(contents.path, commit_message, contents.sha, branch))
 
 def _commit_and_push_new_files(repo_dir, file_list, commit_message):
     """
@@ -513,9 +515,7 @@ def main():
     # _get_branches_list(repo)
     # _get_repo("/home/ubuntu-1804/Desktop/bucketlist")
     # _merge_branch_to_master(repo, "new_branch")
-    # _create_new_file(repo, "temp4.py", "temp", "temp", "new_branch")
-    # print (_get_head_commit(repo, "new_branch"))
-    # _update_a_file(repo, "temp4.py", "message", "content", "0cc358160f5b25435fb3fedc635facb2b9e7e64b", "new_branch")
+    _delete_a_file(repo, "temp3.py", "Remove temp3.py", "new_branch", "new_branch")
 
 if __name__ == '__main__':
     main()
