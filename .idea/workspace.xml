@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/bucketlist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bucketlist.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectgit/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
     </list>
@@ -41,37 +43,48 @@
     <favorites_list name="bucketlist" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4943274">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="504" column="34" lean-forward="true" selection-start-line="504" selection-start-column="34" selection-end-line="504" selection-end-column="34" />
-                  <folding>
-                    <element signature="e#15#53#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/projectgit/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="516" column="50" selection-start-line="516" selection-start-column="50" selection-end-line="516" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#914#994#0" />
+                <element signature="e#1052#1485#0" />
+                <element signature="e#1546#1974#0" />
+                <element signature="e#2023#2299#0" />
+                <element signature="e#2350#2937#0" />
+                <element signature="e#2972#3249#0" />
+                <element signature="e#3288#3487#0" />
+                <element signature="e#3520#3796#0" />
+                <element signature="e#3834#4186#0" />
+                <element signature="e#4274#4942#0" />
+                <element signature="e#5002#5825#0" />
+                <element signature="e#5878#6109#0" />
+                <element signature="e#6162#6387#0" />
+                <element signature="e#6423#6844#0" />
+                <element signature="e#6881#7186#0" />
+                <element signature="e#7229#7749#0" />
+                <element signature="e#7807#8138#0" />
+                <element signature="e#8234#9216#0" />
+                <element signature="e#9254#9792#0" />
+                <element signature="e#11270#11603#0" />
+                <element signature="e#11678#13531#0" />
+                <element signature="e#13568#13836#0" />
+                <element signature="e#13875#13980#0" />
+                <element signature="e#14035#14185#0" />
+                <element signature="e#14229#14482#0" />
+                <element signature="e#14552#14770#0" />
+                <element signature="e#14817#15186#0" />
+                <element signature="e#15235#15338#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -149,6 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,7 +179,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,7 +409,8 @@
       <workItem from="1563514097622" duration="12881000" />
       <workItem from="1563624192042" duration="14262000" />
       <workItem from="1563772312300" duration="5917000" />
-      <workItem from="1563783638647" duration="11217000" />
+      <workItem from="1563783638647" duration="13057000" />
+      <workItem from="1563859695493" duration="7911000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -602,7 +616,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296382000" />
+    <option name="totallyTimeSpent" value="306133000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -617,7 +631,7 @@
     <frame x="0" y="25" width="1280" height="999" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" weight="0.22528364" />
+      <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" weight="0.22933549" />
       <window_info id="Structure" order="1" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info id="Favorites" order="2" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -628,8 +642,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49675852" weight="0.31954023" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.493517" visible="true" weight="0.23103449" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50648296" side_tool="true" weight="0.23333333" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49270666" visible="true" weight="0.23103449" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50729334" side_tool="true" weight="0.23103449" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32528734" />
       <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49270666" weight="0.3428899" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32873562" />
@@ -914,21 +928,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projectgit/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/temp.py" />
-    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/pygit2/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/pygit2/repository.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -977,19 +977,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projectgit/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/local/lib/python2.7/site-packages/pygit2/errors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        <state relative-caret-position="225">
+          <caret line="146" column="27" lean-forward="true" selection-start-line="146" selection-start-column="27" selection-end-line="146" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="504" column="34" lean-forward="true" selection-start-line="504" selection-start-column="34" selection-end-line="504" selection-end-column="34" />
+        <state relative-caret-position="449">
+          <caret line="516" column="50" selection-start-line="516" selection-start-column="50" selection-end-line="516" selection-end-column="50" />
           <folding>
-            <element signature="e#15#53#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#914#994#0" />
+            <element signature="e#1052#1485#0" />
+            <element signature="e#1546#1974#0" />
+            <element signature="e#2023#2299#0" />
+            <element signature="e#2350#2937#0" />
+            <element signature="e#2972#3249#0" />
+            <element signature="e#3288#3487#0" />
+            <element signature="e#3520#3796#0" />
+            <element signature="e#3834#4186#0" />
+            <element signature="e#4274#4942#0" />
+            <element signature="e#5002#5825#0" />
+            <element signature="e#5878#6109#0" />
+            <element signature="e#6162#6387#0" />
+            <element signature="e#6423#6844#0" />
+            <element signature="e#6881#7186#0" />
+            <element signature="e#7229#7749#0" />
+            <element signature="e#7807#8138#0" />
+            <element signature="e#8234#9216#0" />
+            <element signature="e#9254#9792#0" />
+            <element signature="e#11270#11603#0" />
+            <element signature="e#11678#13531#0" />
+            <element signature="e#13568#13836#0" />
+            <element signature="e#13875#13980#0" />
+            <element signature="e#14035#14185#0" />
+            <element signature="e#14229#14482#0" />
+            <element signature="e#14552#14770#0" />
+            <element signature="e#14817#15186#0" />
+            <element signature="e#15235#15338#0" />
           </folding>
         </state>
       </provider>

@@ -129,7 +129,7 @@ def _create_repo(g, full_name):
     return repo
 
 
-def _get_repo(path=None):
+def _get_repo(path):
     """
     Gets the Repo object associated with
     the path.  If the path is `None` or empty
@@ -199,6 +199,7 @@ def _push_to_repo(user_name, cloned_repo_directory):
 
 
                                             ###   Branches   ###
+
 
 def _get_current_working_branch(path_to_repo):
     """
@@ -299,7 +300,7 @@ def _rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_m
     author = pygit2.Signature("gshubh", "skg31297@gmail.com")
     commiter = pygit2.Signature(commiter_name, commiter_email)
 
-    branch = repo.lookup_branch("remotes/origin/new_branch")
+    branch = repo.lookup_branch("remotes/origin/" + branch_name)
     master_branch = repo.lookup_branch("master")
     print (branch.target)
 
@@ -342,7 +343,7 @@ def _create_new_file(repo, path, message, content,  branch):
     message - string, (required), commit message
     content - string, (required) actual data in the file
     """
-    repo.create_file(path, message, content, branch=branch)
+    print (repo.create_file(path, message, content, branch))
 
 
 def _update_a_file(repo, path, message, content, sha, branch):
@@ -355,12 +356,12 @@ def _update_a_file(repo, path, message, content, sha, branch):
         sha - string, (required), Th blob sha of file being replaced
         branch - string. The branch name. Default: The repository's branch name (usually master)
     """
-    repo.update_file(path, message, content, sha, branch)
+    print (repo.update_file(path, message, content, sha, branch))
 
 
 def _delete_a_file(repo, path, sha, message, branch):
     """
-    Update a file in the repository
+    Delete a file in the repository
     parameters
         :repo - repository
         :path - string, (required), path of the file in the repository
@@ -368,7 +369,8 @@ def _delete_a_file(repo, path, sha, message, branch):
         :sha - string, (required), Th blob sha of file being replaced
         :branch - string. The branch name. Default: The repository's branch name (usually master)
     """
-    repo.delete_file(path, message, sha, branch)
+    print (repo.delete_file(path, message, sha, branch))
+
 
 def _commit_and_push_new_files(repo_dir, file_list, commit_message):
     """
@@ -510,6 +512,10 @@ def main():
     # _git_pull("/home/ubuntu-1804/Desktop/bucketlist", remote_name="origin", branch="master")
     # _get_branches_list(repo)
     # _get_repo("/home/ubuntu-1804/Desktop/bucketlist")
+    # _merge_branch_to_master(repo, "new_branch")
+    # _create_new_file(repo, "temp4.py", "temp", "temp", "new_branch")
+    # print (_get_head_commit(repo, "new_branch"))
+    # _update_a_file(repo, "temp4.py", "message", "content", "0cc358160f5b25435fb3fedc635facb2b9e7e64b", "new_branch")
 
 if __name__ == '__main__':
     main()
