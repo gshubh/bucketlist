@@ -146,7 +146,7 @@ def _clone_repo(url, to_path):
         raise MissingRepoException('The remote repo does not exist. Please select a different repository')
 
 
-def _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
+def _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email, commit_message):
     """
 
     :param repo:
@@ -163,7 +163,7 @@ def _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email):
     author = pygit2.Signature("gshubh", "skg31297@gmail.com")
     commiter = pygit2.Signature(commiter_name, commiter_email)
     tree = index.write_tree()
-    return repoclone.create_commit('refs/heads/master', author, commiter, "init commit", tree,
+    return repoclone.create_commit('refs/heads/master', author, commiter, commit_message, tree,
                                   [repoclone.head.peel().hex])
 
 
@@ -497,7 +497,7 @@ def test():
     g = _get_username_and_password("gshubh")
     repo = g.get_repo("gshubh/bucketlist")
     # _clone_repo("https://github.com/gshubh/bucketlist.git", "/home/ubuntu-1804/Desktop/shubh")
-    _commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com")
+    _commit_to_repo(repo, "/home/ubuntu-1804/Desktop/bucketlist", "gshubh", "skg31297@gmail.com", "New Commit")
     _push_to_repo("gshubh", "/home/ubuntu-1804/Desktop/bucketlist")
     # print (git_checkout("/home/ubuntu-1804/Desktop/bucketlist", "master"))
     # get_current_working_branch("/home/ubuntu-1804/Desktop/bucketlist")
