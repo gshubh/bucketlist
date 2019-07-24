@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="" />
+    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +56,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="481" lean-forward="true" selection-start-line="481" selection-end-line="481" />
+            <state relative-caret-position="-655">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#584#879#0" />
                 <element signature="e#1546#1974#0" />
                 <element signature="e#2972#3249#0" />
                 <element signature="e#3288#3487#0" />
@@ -74,6 +77,18 @@
                 <element signature="e#8230#9216#0" />
                 <element signature="e#9254#9792#0" />
                 <element signature="e#9860#10164#0" />
+                <element signature="e#10246#10780#0" />
+                <element signature="e#10853#11352#0" />
+                <element signature="e#11428#11760#0" />
+                <element signature="e#11835#13688#0" />
+                <element signature="e#13725#13993#0" />
+                <element signature="e#14032#14137#0" />
+                <element signature="e#14192#14342#0" />
+                <element signature="e#14386#14639#0" />
+                <element signature="e#14709#14927#0" />
+                <element signature="e#14974#15343#0" />
+                <element signature="e#15392#15495#0" />
+                <element signature="e#15415#15417#0" />
               </folding>
             </state>
           </provider>
@@ -408,7 +423,7 @@
       <workItem from="1563772312300" duration="5917000" />
       <workItem from="1563783638647" duration="13057000" />
       <workItem from="1563859695493" duration="16115000" />
-      <workItem from="1563942969977" duration="4768000" />
+      <workItem from="1563942969977" duration="8282000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -614,7 +629,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319105000" />
+    <option name="totallyTimeSpent" value="322619000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1006,10 +1021,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="481" lean-forward="true" selection-start-line="481" selection-end-line="481" />
+        <state relative-caret-position="-655">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#584#879#0" />
             <element signature="e#1546#1974#0" />
             <element signature="e#2972#3249#0" />
             <element signature="e#3288#3487#0" />
@@ -1026,6 +1042,18 @@
             <element signature="e#8230#9216#0" />
             <element signature="e#9254#9792#0" />
             <element signature="e#9860#10164#0" />
+            <element signature="e#10246#10780#0" />
+            <element signature="e#10853#11352#0" />
+            <element signature="e#11428#11760#0" />
+            <element signature="e#11835#13688#0" />
+            <element signature="e#13725#13993#0" />
+            <element signature="e#14032#14137#0" />
+            <element signature="e#14192#14342#0" />
+            <element signature="e#14386#14639#0" />
+            <element signature="e#14709#14927#0" />
+            <element signature="e#14974#15343#0" />
+            <element signature="e#15392#15495#0" />
+            <element signature="e#15415#15417#0" />
           </folding>
         </state>
       </provider>
