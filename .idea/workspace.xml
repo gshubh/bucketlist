@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
-    </list>
+    <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="493" column="32" lean-forward="true" selection-start-line="493" selection-start-column="32" selection-end-line="493" selection-end-column="32" />
+            <state relative-caret-position="407">
+              <caret line="481" lean-forward="true" selection-start-line="481" selection-end-line="481" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
                 <element signature="e#1546#1974#0" />
@@ -411,7 +408,7 @@
       <workItem from="1563772312300" duration="5917000" />
       <workItem from="1563783638647" duration="13057000" />
       <workItem from="1563859695493" duration="16115000" />
-      <workItem from="1563942969977" duration="4688000" />
+      <workItem from="1563942969977" duration="4768000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -617,7 +614,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319025000" />
+    <option name="totallyTimeSpent" value="319105000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1009,8 +1006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="493" column="32" lean-forward="true" selection-start-line="493" selection-start-column="32" selection-end-line="493" selection-end-column="32" />
+        <state relative-caret-position="407">
+          <caret line="481" lean-forward="true" selection-start-line="481" selection-end-line="481" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#1546#1974#0" />
