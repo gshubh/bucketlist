@@ -3,7 +3,7 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from projectgit.repo import *
+from .repo import *
 
 _LOG = logging.getLogger(__name__)
 
