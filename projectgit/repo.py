@@ -34,14 +34,6 @@ def _get_head_commit(repo, branch_name):
     return branch.commit
 
 
-def _get_commit(repo, sha):
-    """
-    :param sha:
-    :return: unicode
-    """
-    return repo.get_commit(sha)
-
-
 def _get_relevant_commit_shas(repo, base, branch):
     """
     Parses the git log to get all commit shas that
@@ -288,7 +280,7 @@ def _merge_branch_to_master(repo, working_branch):
 def _rebasing(path_to_repo, branch_name, commiter_name, commiter_email, commit_message):
     """
     Rebasing one branch on master branch
-    :param repo: Repository
+    :param path_to_repo: path_to_repository
     :param branch_name: Branch name needs to be rebased on master branch
     :param commiter_name:
     :param commiter_email:
