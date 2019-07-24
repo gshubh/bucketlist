@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectgit/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="594" column="55" lean-forward="true" selection-start-line="594" selection-start-column="55" selection-end-line="594" selection-end-column="55" />
+            <state relative-caret-position="-510">
+              <caret line="512" lean-forward="true" selection-start-line="512" selection-end-line="512" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
                 <element signature="e#1546#1974#0" />
@@ -402,7 +400,7 @@
       <workItem from="1563772312300" duration="5917000" />
       <workItem from="1563783638647" duration="13057000" />
       <workItem from="1563859695493" duration="16115000" />
-      <workItem from="1563942969977" duration="2377000" />
+      <workItem from="1563942969977" duration="2793000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -608,7 +606,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316714000" />
+    <option name="totallyTimeSpent" value="317130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,7 +619,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1280" height="999" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" x="627" y="213" width="292" height="524" id="Project" order="0" sideWeight="0.4988532" visible="true" weight="0.23338735" />
       <window_info id="Structure" order="1" sideWeight="0.5011468" side_tool="true" weight="0.24537815" />
@@ -634,7 +631,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289941" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49675852" weight="0.31954023" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49270666" weight="0.7735632" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49270666" visible="true" weight="0.7735632" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50729334" side_tool="true" weight="0.23103449" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49957156" weight="0.32528734" />
       <window_info anchor="bottom" id="Docker" order="11" sideWeight="0.49270666" weight="0.3428899" />
@@ -1000,8 +997,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="594" column="55" lean-forward="true" selection-start-line="594" selection-start-column="55" selection-end-line="594" selection-end-column="55" />
+        <state relative-caret-position="-510">
+          <caret line="512" lean-forward="true" selection-start-line="512" selection-end-line="512" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#1546#1974#0" />
