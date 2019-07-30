@@ -151,7 +151,7 @@ def _push_to_repo(user_name, cloned_repo_directory):
 
 def _get_current_working_branch(path_to_repo):
     """
-    :param repo:
+    :param path_to_repo:
     :return: current working branch
     """
     repo = pygit2.Repository(path_to_repo)
@@ -586,16 +586,17 @@ def replymenu():
         main()
 
     elif choice == 10:
-        path_to_repo = (raw_input('Enter the path/to/repository: '))
+        g = _get_username_and_password("gshubh")
+        repo = g.get_repo("gshubh/bucketlist")
         branch_name = (raw_input('Enter the branch name: '))
-        _git_checkout(path_to_repo, branch_name)
+        _create_new_branch(repo, branch_name)
         main()
 
     elif choice == 11:
         g = _get_username_and_password("gshubh")
         repo = g.get_repo("gshubh/bucketlist")
-        working_branch = (raw_input('Enter the branch which you want to merge to master: '))
-        _merge_branch_to_master(repo, working_branch)
+        branch_name = (raw_input('Enter the branch name: '))
+        _merge_branch_to_master(repo, branch_name)
         main()
 
     elif choice == 12:
