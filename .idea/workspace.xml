@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4036369-5cc6-475b-b810-2ec0084819b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/92504e35-cc86-4816-b198-9b4faabccdd1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/92504e35-cc86-4816-b198-9b4faabccdd1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectgit/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectgit/repo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectgit/main.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -309,7 +307,7 @@
       <workItem from="1563942969977" duration="8919000" />
       <workItem from="1564465636816" duration="552000" />
       <workItem from="1564999434980" duration="840000" />
-      <workItem from="1565674055272" duration="63000" />
+      <workItem from="1565674055272" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
