@@ -104,7 +104,6 @@ def _clone_repo(url, to_path):
 
 def _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email, commit_message):
     """
-
     :param repo:
     :param cloned_repo_directory: path/to/repo_directory
     :param commiter_name:
@@ -125,12 +124,10 @@ def _commit_to_repo(repo, cloned_repo_directory, commiter_name, commiter_email, 
 
 def _push_to_repo(user_name, cloned_repo_directory):
     """
-
     :param user_name: github username
     :param cloned_repo_directory:  path/to/repo_directory
     :return:
     """
-
     repoclone = pygit2.Repository(cloned_repo_directory + "/.git/")
     remote = repoclone.remotes["origin"]
     username = user_name

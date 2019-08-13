@@ -6,23 +6,23 @@
     </root>
     <database id="2" parent="1" name="flask_api">
       <ObjectId>16444</ObjectId>
-      <StateNumber>604</StateNumber>
       <Owner>postgres</Owner>
       <IntrospectionStateNumber>1496</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16491|16493|1
 </Relations>
+      <Substituted>1</Substituted>
     </database>
     <database id="3" parent="1" name="postgres">
       <ObjectId>13067</ObjectId>
       <Comment>default administrative connection database</Comment>
-      <StateNumber>567</StateNumber>
       <Owner>postgres</Owner>
+      <Substituted>1</Substituted>
     </database>
     <database id="4" parent="1" name="test_db">
       <ObjectId>16445</ObjectId>
-      <StateNumber>605</StateNumber>
       <Owner>postgres</Owner>
+      <Substituted>1</Substituted>
     </database>
     <role id="5" parent="1" name="pg_execute_server_program">
       <ObjectId>4571</ObjectId>
@@ -75,5 +75,26 @@
       <Replication>1</Replication>
       <BypassRls>1</BypassRls>
     </role>
+    <schema id="14" parent="2" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="15" parent="2" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="16" parent="3" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="17" parent="3" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="18" parent="4" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="19" parent="4" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
   </database-model>
 </dataSource>
