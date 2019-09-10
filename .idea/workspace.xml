@@ -41,11 +41,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="458" column="35" selection-start-line="458" selection-start-column="35" selection-end-line="458" selection-end-column="35" />
+            <state relative-caret-position="155">
+              <caret line="515" lean-forward="true" selection-start-line="515" selection-end-line="515" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -112,8 +130,8 @@
         <option value="$PROJECT_DIR$/projectgit/temp.py" />
         <option value="$PROJECT_DIR$/new_file.py" />
         <option value="$PROJECT_DIR$/projectgit/pullrequest.py" />
-        <option value="$PROJECT_DIR$/projectgit/repo.py" />
         <option value="$PROJECT_DIR$/projectgit/main.py" />
+        <option value="$PROJECT_DIR$/projectgit/repo.py" />
       </list>
     </option>
   </component>
@@ -140,6 +158,11 @@
               <item name="bucketlist" type="b2602c69:ProjectViewProjectNode" />
               <item name="bucketlist" type="462c0819:PsiDirectoryNode" />
               <item name="projectgit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bucketlist" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bucketlist" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,7 +402,7 @@
       <workItem from="1563859695493" duration="15809000" />
       <workItem from="1563899490385" duration="299000" />
       <workItem from="1566119176241" duration="3147000" />
-      <workItem from="1568119990912" duration="8371000" />
+      <workItem from="1568119990912" duration="13945000" />
     </task>
     <task id="LOCAL-00001" summary="New commit">
       <created>1561618248481</created>
@@ -585,7 +608,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326032000" />
+    <option name="totallyTimeSpent" value="331606000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -849,13 +872,6 @@
         <state relative-caret-position="-3690" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -910,14 +926,21 @@
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projectgit/repo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="458" column="35" selection-start-line="458" selection-start-column="35" selection-end-line="458" selection-end-column="35" />
+        <state relative-caret-position="155">
+          <caret line="515" lean-forward="true" selection-start-line="515" selection-end-line="515" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
